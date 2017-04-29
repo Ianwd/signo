@@ -3,6 +3,7 @@ const gulp = require('gulp');
 const sass = require('gulp-sass');
 const preprocess = require('gulp-preprocess');
 const markdown = require('gulp-markdown');
+const sitemap = require('gulp-sitemap');
 
 
 gulp.task('html', function() {
@@ -23,6 +24,16 @@ gulp.task('markdown', function(){
     .pipe(markdown())
     .pipe(gulp.dest('./build/'))
 })
+
+gulp.task('sitemap', function() {
+  gulp.src('./build/**/*.html', {
+    read: false,
+  })
+  .pipe(sitemap({
+    siteUrl: 'https://signo.mathieudelvaux.be',
+  }))
+  .pipe(gulp.dest('./build'));
+});
 
 gulp.task('watch', function() {
   gulp.watch('./src/html/**/*.html', ['html']);
