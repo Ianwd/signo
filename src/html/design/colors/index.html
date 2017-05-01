@@ -1,0 +1,20 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    @@include('./templates/head.html', {
+      "html-title": "haoxin",
+      "og-title": "title",
+      "og-url": "/colors",
+      "og-desc": "desc"
+    })
+  </head>
+  <body>
+    @@include('./templates/header.html', {
+      "name": "haoxin",
+      "age": 12345
+    })
+    @@include(markdown('./markdown/colors.md'))
+
+    <script src="@@webRoot/assets/js/main.js"></script>
+  </body>
+</html>
