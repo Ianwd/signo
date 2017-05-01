@@ -2,7 +2,7 @@
   "name": "signo",
   "version": "1.0.0",
   "description": "Temporary description",
-  "main": "./src/index.js",
+  "main": "gulpfile.babel.js",
   "scripts": {
     "markdownlint": "./node_modules/.bin/markdownlint *.md || exit 0",
     "eslint": "./node_modules/.bin/eslint src/** || exit 0",
