@@ -4,13 +4,27 @@ import sass from 'gulp-sass';
 import sourcemaps from 'gulp-sourcemaps';
 import autoprefixer from 'gulp-autoprefixer';
 import cleanCSS from 'gulp-clean-css';
+import font2css from 'gulp-font2css';
 import fileinclude from 'gulp-file-include';
-import markdown from 'markdown';
+import markdown from 'gulp-markdown';
+import highlight from 'gulp-highlight';
 import sitemap from 'gulp-sitemap';
 import util from 'gulp-util';
 import concat from 'gulp-concat';
 import uglify from 'gulp-uglify';
 import babel from 'gulp-babel';
+
+markdown.marked.setOptions({
+  renderer: new markdown.marked.Renderer(),
+  gfm: true,
+  tables: true,
+  breaks: false,
+  pedantic: false,
+  sanitize: true,
+  smartLists: true,
+  smartypants: false,
+  langPrefix: 'numbered lang-'
+});
 
 gulp.task('html', () => {
   gulp.src('./src/html/**/*.html')
@@ -18,11 +32,20 @@ gulp.task('html', () => {
       prefix: '@@',
       basepath: './src/',
       filters: {
-        markdown: markdown.parse,
+        //markdown: markdown.parse,
+        markdown: markdown.marked,
       }
     }))
+    //.pipe(highlight())
     .pipe(gulp.dest('./build/'))
 });
+
+gulp.task('fonts', () => {
+  return gulp.src('./src/fonts/*.{otf,ttf,woff,woff2}')
+    .pipe(font2css())
+    .pipe(concat('fonts.scss'))
+    .pipe(gulp.dest('./src/styles/'))
+})
 
 gulp.task('sass', () => {
   return gulp.src('./src/styles/main.scss')
@@ -39,12 +62,12 @@ gulp.task('sass', () => {
 });
 
 gulp.task('js', () => {
-  return gulp.src('./src/js/*.js')
+  return gulp.src('./src/js/**/*.js')
     .pipe(util.env.type === 'dev' ? sourcemaps.init() : util.noop())
     .pipe(babel({
   			presets: ['env']
   		}))
-    .pipe(uglify())
+    .pipe(util.env.type === 'prod' ? uglify() : util.noop())
     .pipe(concat('main.js'))
     .pipe(util.env.type === 'dev' ? sourcemaps.write('./') : util.noop())
     .pipe(gulp.dest('./build/assets/js'))
@@ -67,6 +90,6 @@ gulp.task('watch', () => {
   gulp.watch('./src/js/**/*.js', ['js']);
 });
 
-gulp.task('default', ['html', 'sass']);
-gulp.task('dev', ['html', 'sass', 'js', 'watch']);
-gulp.task('build', ['html', 'sass', 'sitemap']);
+gulp.task('default', ['html', 'fonts', 'sass', 'js', 'sitemap']);
+gulp.task('dev', ['html', 'fonts', 'sass', 'js', 'watch']);
+gulp.task('build', ['html', 'fonts', 'sass', 'js', 'sitemap']);

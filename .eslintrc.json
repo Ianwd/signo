@@ -166,6 +166,7 @@
     "require-await": 2,
     "require-jsdoc": 2,
     "rest-spread-spacing": 2,
+    "semi": 2,
     "semi-spacing": 2,
     "space-before-blocks": 2,
     "space-in-parens": 2,

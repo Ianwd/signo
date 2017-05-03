@@ -1,20 +1,21 @@
+<!-- /colors -->
 <!doctype html>
 <html class="no-js" lang="en">
   <head>
-    @@include('./templates/head.html', {
-      "page-title": "haoxin",
-      "og-desc": "desc",
-      "og-url": "/colors"
-    })
+@@include('./templates/head.html', {
+  "page-title": "title – signo",
+  "page-desc": "desc",
+  "og-url": "/colors"
+})
   </head>
   <body>
-    @@include('./templates/header.html', {
-      "active-design": "active",
-      "active-dev": "",
-      "active-tools": "",
-      "active-about": ""
-    })
-    @@include(markdown('./markdown/colors.md'))
+@@include('./templates/header.html', {
+  "active-design": "active",
+  "active-dev": "",
+  "active-tools": "",
+  "active-about": ""
+})
+@@include(markdown('./markdown/colors.md'))
 
     <script src="@@webRoot/assets/js/main.js"></script>
   </body>
