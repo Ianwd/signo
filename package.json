@@ -4,8 +4,8 @@
   "description": "Temporary description",
   "main": "gulpfile.babel.js",
   "scripts": {
-    "markdownlint": "./node_modules/.bin/markdownlint *.md || exit 0",
-    "eslint": "./node_modules/.bin/eslint src/** || exit 0",
+    "markdownlint": "./node_modules/.bin/markdownlint src/markdown/*.md || exit 0",
+    "eslint": "./node_modules/.bin/eslint src/js/** || exit 0",
     "lint": "npm run markdownlint && npm run eslint",
     "clean": "rm -rf build/*",
     "dev": "npm run lint && npm run clean && gulp dev --type dev --env=dev",
@@ -26,16 +26,16 @@
   "devDependencies": {
     "babel-core": "^6.23.1",
     "babel-eslint": "^7.1.1",
-    "babel-loader": "^6.3.2",
     "babel-preset-env": "^1.1.10",
+    "eslint": "^3.19.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-babel": "^6.1.2",
+    "gulp-better-rollup": "^1.1.1",
     "gulp-clean-css": "^3.0.4",
     "gulp-concat": "^2.6.1",
     "gulp-file-include": "^1.1.0",
     "gulp-font2css": "^0.1.2",
-    "gulp-highlight": "^2.1.0",
     "gulp-markdown": "^1.2.0",
     "gulp-md-template": "^1.1.2",
     "gulp-preprocess": "^2.0.0",
@@ -45,7 +45,8 @@
     "gulp-uglify": "^2.1.2",
     "gulp-util": "^3.0.8",
     "markdown": "^0.5.0",
-    "markdownlint-cli": "^0.2.0"
+    "markdownlint-cli": "^0.3.1",
+    "rollup-plugin-babel": "^2.7.1"
   },
   "dependencies": {}
 }

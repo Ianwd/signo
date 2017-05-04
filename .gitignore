@@ -106,5 +106,5 @@ Temporary Items
 # End of https://www.gitignore.io/api/osx,node,git,sass,visualstudiocode
 
 ### Custom ###
-/dist
+/build
 _README-*.md
