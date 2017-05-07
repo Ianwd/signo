@@ -1,0 +1,52 @@
+h1 {
+  font-weight: 100;
+  font-size: 52px;
+  color: $jet;
+  line-height: 62px;
+  letter-spacing: -0.1px;
+  margin: 0;
+
+  b {
+    font-weight: 300;
+    letter-spacing: -0.2px;
+  }
+}
+
+h2 {
+  font-weight: 300;
+  font-size: 40px;
+  color: $jet;
+  letter-spacing: 1px;
+  line-height: 48px;
+
+  b {
+    font-weight: 400;
+  }
+}
+
+h3 {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 36px;
+  color: $jet;
+}
+
+h4 {
+  font-size: 18px;
+  font-weight: 500;
+  color: $jet;
+  letter-spacing: 0.3px;
+  line-height: 18px;
+  text-transform: uppercase;
+}
+
+p {
+  font-weight: 300;
+  font-size: 16px;
+  color: $jet;
+  line-height: 32px;
+}
+
+article {
+  font-weight: 300;
+}

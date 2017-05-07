@@ -1,5 +1,11 @@
-@import "fonts.scss";
-@import "colors.scss";
-@import "base.scss";
-@import "modules/footer.scss";
-@import "vendor/prism-light.scss";
+@import "colors";
+@import "mixins";
+@import "fonts";
+@import "typography";
+@import "base";
+@import "modules/header";
+@import "modules/footer";
+@import "modules/home";
+@import "modules/docs";
+@import "vendor/prism-light";
+@import "vendor/grid";

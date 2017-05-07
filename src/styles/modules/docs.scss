@@ -1,0 +1,188 @@
+.doc {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1040px;
+}
+
+.doc__column {
+  height: 100vh;
+  width: 260px;
+  position: fixed;
+  z-index: 1;
+
+  &::after {
+    content: "";
+    z-index: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 40vw;
+    background-color: $neon-carrot;
+    background-image: radial-gradient(circle farthest-side at right bottom, rgba($white, .1) 0%, rgba($white, 0) 100%), url("../img/pattern-white.svg");
+    background-size: 100%;
+    background-repeat: no-repeat, repeat;
+  }
+}
+
+.doc__columnContent {
+  position: relative;
+  z-index: 1;
+}
+
+.doc__breadcrumb {
+  padding-top: 113px;
+  position: relative;
+  z-index: 1;
+  transition: padding .8s cubic-bezier(.2, 1, .25, 1);
+
+  &.doc__breadcrumb--top {
+    padding-top: 49px;
+  }
+
+  ol {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    left: -12px;
+  }
+
+  li {
+    display: inline-block;
+    white-space: nowrap;
+    margin-right: 18px;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 6px;
+      height: 9px;
+      background-image: url("../img/right.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      top: 7px;
+      right: -14px;
+    }
+
+    &:last-child {
+      margin-right: 0;
+
+      // scss-lint:disable NestingDepth
+      &::after {
+        content: none;
+      }
+      // scss-lint:enable NestingDepth
+    }
+  }
+}
+
+.doc__breadcrumbLink {
+  display: inline-block;
+  white-space: nowrap;
+  font-size: 12px;
+  color: $white;
+  line-height: 24px;
+  padding: 0 12px;
+  text-decoration: none;
+}
+
+.doc__toc {
+  display: table;
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+
+  nav {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    padding-left: 21px;
+  }
+}
+
+.doc__tocLink {
+  display: table;
+  font-weight: 600;
+  font-size: 12px;
+  color: rgba($white, .4);
+  line-height: 18px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 11px;
+  margin: 2px 0;
+  position: relative;
+  transition: color .6s cubic-bezier(.2, 1, .25, 1);
+
+  &.doc__tocLink--active {
+    color: $white;
+  }
+
+  &:hover {
+    color: $white;
+  }
+}
+
+.doc__progress {
+  background-color: rgba($white, .4);
+  width: 1px;
+  top: 35vh;
+  bottom: 35vh;
+  left: 0;
+  position: absolute;
+}
+
+.doc__progressDone {
+  background-color: $white;
+  width: 1px;
+  height: 100%;
+  top: 0;
+  transform-origin: 50% 0;
+  position: absolute;
+  transition: transform .6s cubic-bezier(.2, 1, .25, 1);
+}
+
+.doc__article {
+  background-color: $white;
+  padding: 117px 0;
+  margin-left: 260px;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  p {
+    padding: 0 130px;
+  }
+
+  p,
+  li {
+    font-size: 14px;
+    line-height: 28px;
+  }
+
+  ul,
+  ol {
+    padding: 0 130px 0 146px;
+  }
+
+  h2 + p,
+  h2 + p + p,
+  h2 + p + ul li {
+    font-size: 16px;
+    line-height: 32px;
+  }
+}
+
+.doc__update {
+  font-weight: 600;
+  font-size: 10px;
+  color: $jet;
+  letter-spacing: 0.8px;
+  line-height: 18px;
+  text-transform: uppercase;
+  margin: 0 130px 48px;
+}

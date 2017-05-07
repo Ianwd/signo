@@ -1,3 +1,149 @@
-footer {
+.footer {
   margin: 0;
+  padding: 41px 0;
+  position: relative;
+  z-index: 2;
+  background-color: $neon-carrot;
+  background-image: radial-gradient(circle farthest-side at right bottom, rgba($white, .1) 0%, rgba($white, 0) 100%), url("../img/pattern-white.svg");
+  background-size: 100%;
+  background-repeat: no-repeat, repeat;
+  background-position: 32px;
+  font-size: 12px;
+  color: $white;
+  letter-spacing: 0.5px;
+  line-height: 18px;
+
+  h4 a::before,
+  &__link::before {
+    content: "";
+    height: 1px;
+    width: 100%;
+    position: absolute;
+    background-color: $white;
+    display: block;
+    bottom: 1px;
+    transition: transform .6s cubic-bezier(.2, 1, .25, 1);
+    transform: translateX(-120%);
+  }
+
+  h4 a:hover::before,
+  &__link:hover::before {
+    transform: translateX(0);
+  }
+
+  h4 {
+    color: inherit;
+    font-size: inherit;
+    font-weight: 600;
+    margin: 17px 0 4px;
+    text-transform: none;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+      display: inline-block;
+    }
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  small {
+    font-size: inherit;
+    color: rgba($white, .65);
+  }
+}
+
+.footer__logo {
+  display: inline-block;
+  white-space: nowrap;
+  user-select: none;
+  font-size: 16px;
+  margin: 0;
+  padding: 0 24px;
+  left: -24px;
+  position: relative;
+  transition: opacity .6s cubic-bezier(.2, 1, .25, 1);
+  opacity: 1;
+
+  h1 {
+    color: inherit;
+    line-height: 32px;
+    font-size: 24px;
+  }
+
+  &:hover {
+    opacity: .5;
+  }
+}
+
+.footer__directory {
+  display: flex;
+}
+
+.footer__column {
+  flex: 1;
+  width: 0; // Force equal-width columns
+  margin-right: 24px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.footer__item {
+  list-style: none;
+}
+
+.footer__link {
+  display: inline-block;
+  overflow: hidden;
+  line-height: 19px;
+  padding: 2px 0 0;
+  margin: 2px 0;
+  color: inherit;
+  opacity: .65;
+  text-decoration: none;
+  transition: opacity .6s cubic-bezier(.2, 1, .25, 1);
+  position: relative;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &--external {
+    padding-right: 18px;
+  }
+
+  &--external::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    right: 1px;
+    top: 4.5px;
+    background-image: url("../img/external.svg");
+    background-size: contain;
+  }
+}
+
+.footer__bottom {
+  display: flex;
+  margin-top: 80px;
+}
+
+.footer__legal {
+  flex-grow: 1;
+
+  a {
+    margin-right: 22px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 }

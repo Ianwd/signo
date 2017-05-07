@@ -13,9 +13,37 @@
   "active-design": "",
   "active-dev": "",
   "active-tools": "",
-  "active-about": ""
+  "active-learn": "",
+  "search": false,
+  "header-theme": "header--light"
 })
 
+    <div class="dev"></div>
+    <main>
+      <header class="pageHead pageHead--home">
+        <div class="container">
+          <h1>
+            Explore the world of screen accessibility, <b>as simple as can be</b>
+          </h1>
+          <form class="pageHead__form">
+            <div class="pageHead__search">
+              <svg aria-hidden="true" width="18" height="18"><path fill="#0a2850" d="M14.95 13.47a8.35 8.35 0 1 0-1.48 1.48l2.75 2.75a1 1 0 0 0 1.48-1.48zm-6.6 1.14a6.26 6.26 0 1 1 6.26-6.26 6.26 6.26 0 0 1-6.26 6.26z"/></svg>
+              <input class="pageHead__input" type="text" placeholder="Type what you want to make…" autocapitalize="off" autocorrect="off" spellcheck="false" name="">
+              <button class="pageHead__cancel-button" type="button" aria-label="Clear Search"></button>
+            </div>
+          </form>
+        </div>
+      </header>
+      <div class="card card--white card--fromLeft card--heightOffset">
+        <div class="container">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit .
+        </div>
+      </div>
+    </main>
+
     <script src="@@webRoot/assets/js/main.js"></script>
+    @@if (context.build === "dev") {
+      @@include('./templates/_dev-scripts.html')
+    }
   </body>
 </html>

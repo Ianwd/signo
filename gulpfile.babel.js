@@ -12,9 +12,12 @@ import util from 'gulp-util';
 import concat from 'gulp-concat';
 import uglify from 'gulp-uglify';
 //import babel from 'gulp-babel';
-
-import rollup from 'gulp-better-rollup';
-import babel from 'rollup-plugin-babel';
+import webpack from 'webpack-stream';
+import copyWebpack from 'copy-webpack-plugin';
+import through from 'through2';
+// import rollup from 'gulp-better-rollup';
+// import babel from 'rollup-plugin-babel';
+import imagemin from 'gulp-imagemin';
 
 markdown.marked.setOptions({
   renderer: new markdown.marked.Renderer(),
@@ -22,22 +25,34 @@ markdown.marked.setOptions({
   tables: true,
   breaks: false,
   pedantic: false,
-  sanitize: true,
+  sanitize: true,//set to false to allow inline HTML
   smartLists: true,
-  smartypants: false,
+  smartypants: true,
   langPrefix: 'numbered lang-'
 });
 
 gulp.task('html', () => {
   gulp.src('./src/html/**/*.html')
-    .pipe(fileinclude({
+    .pipe(util.env.type === 'prod' ? fileinclude({
       prefix: '@@',
       basepath: './src/',
       filters: {
-        //markdown: markdown.parse,
         markdown: markdown.marked,
+      },
+      context: {
+        build: 'prod',
       }
-    }))
+    }) : util.noop())
+    .pipe(util.env.type === 'dev' ? fileinclude({
+      prefix: '@@',
+      basepath: './src/',
+      filters: {
+        markdown: markdown.marked,
+      },
+      context: {
+        build: 'dev'
+      }
+    }) : util.noop())
     .pipe(gulp.dest('./build/'))
 });
 
@@ -47,6 +62,12 @@ gulp.task('fonts', () => {
     .pipe(concat('fonts.scss'))
     .pipe(gulp.dest('./src/styles/'))
 })
+
+gulp.task('img', () =>
+  gulp.src('./src/img/*')
+    .pipe(util.env.type === 'prod' ? imagemin() : util.noop())
+    .pipe(gulp.dest('./build/assets/img'))
+);
 
 gulp.task('sass', () => {
   return gulp.src('./src/styles/main.scss')
@@ -75,18 +96,57 @@ gulp.task('sass', () => {
 //     .pipe(gulp.dest('./build/assets/js'))
 // });
 
+// gulp.task('js', () => {
+//   return gulp.src([
+//       './src/js/main.js',
+//       './src/js/color.js',
+//       './src/js/vendor/prism.js',
+//       './src/js/vendor/hugrid.js'
+//   ])
+//     .pipe(util.env.type === 'dev' ? sourcemaps.init() : util.noop())
+//     .pipe(rollup({plugins: [babel()]}))
+//     .pipe(util.env.type === 'prod' ? uglify() : util.noop())
+//     .pipe(util.env.type === 'dev' ? sourcemaps.write('./') : util.noop())
+//     .pipe(gulp.dest('./build/assets/js'))
+// });
+
 gulp.task('js', () => {
-  //return gulp.src('./src/js/*.js')
   return gulp.src([
       './src/js/main.js',
-      './src/js/color.js',
-      './src/js/vendor/prism.js'
+      './src/js/color.js'
   ])
-    .pipe(util.env.type === 'dev' ? sourcemaps.init() : util.noop())
-    .pipe(rollup({plugins: [babel()]}))
-    .pipe(util.env.type === 'prod' ? uglify() : util.noop())
-    .pipe(util.env.type === 'dev' ? sourcemaps.write('./') : util.noop())
-    .pipe(gulp.dest('./build/assets/js'))
+  .pipe(webpack({
+    devtool: 'source-map',
+    entry: {
+      main: './src/js/main.js',
+      color: './src/js/color.js',
+    },
+    output: {
+      filename: '[name].js'
+    },
+    module: {
+      loaders: [{
+        loader: 'babel-loader'
+      }]
+    },
+    plugins: [
+      new copyWebpack([
+        { from: './src/js/vendor/prism.js', to: './' },
+        { from: './src/js/vendor/hugrid.js', to: './' }
+      ])
+    ]
+  }))
+  // .pipe(util.env.type === 'dev' ? sourcemaps.init() : util.noop())
+  // .pipe(through.obj(function (file, enc, cb) {
+  //     // Dont pipe through any source map files as it will be handled
+  //     // by gulp-sourcemaps
+  //     var isSourceMap = /\.map$/.test(file.path);
+  //     if (!isSourceMap) this.push(file);
+  //     cb();
+  //   }))
+  .pipe(util.env.type === 'prod' ? uglify() : util.noop())
+  // .pipe(util.env.type === 'dev' ? sourcemaps.write('./') : util.noop())
+  .pipe(gulp.dest('./build/assets/js'))
 });
 
 gulp.task('sitemap', () => {
@@ -106,6 +166,6 @@ gulp.task('watch', () => {
   gulp.watch('./src/js/**/*.js', ['js']);
 });
 
-gulp.task('default', ['html', 'fonts', 'sass', 'js', 'sitemap']);
-gulp.task('dev', ['html', 'fonts', 'sass', 'js', 'watch']);
-gulp.task('build', ['html', 'fonts', 'sass', 'js', 'sitemap']);
+gulp.task('dev', ['html', 'fonts', 'img', 'sass', 'js', 'watch']);
+gulp.task('build', ['html', 'fonts', 'img', 'sass', 'js', 'sitemap']);
+gulp.task('default', ['dev']);

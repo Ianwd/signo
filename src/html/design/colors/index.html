@@ -2,22 +2,54 @@
 <!doctype html>
 <html class="no-js" lang="en">
   <head>
-@@include('./templates/head.html', {
-  "page-title": "title – signo",
-  "page-desc": "desc",
-  "og-url": "/colors"
-})
+    @@include('./templates/head.html', {
+      "page-title": "Colors - Design | signo",
+      "page-desc": "desc",
+      "og-url": "/colors"
+    })
   </head>
   <body>
-@@include('./templates/header.html', {
-  "active-design": "active",
-  "active-dev": "",
-  "active-tools": "",
-  "active-about": ""
-})
-@@include(markdown('./markdown/colors.md'))
+    @@include('./templates/header.html', {
+      "active-design": "",
+      "active-dev": "",
+      "active-tools": "",
+      "active-learn": "",
+      "search": true,
+      "header-theme": ""
+    })
+    <main class="doc" data-sticky-container>
+      <aside class="doc__column" role="navigation">
+        <div class="doc__columnContent" role="menubar">
+          <nav class="doc__breadcrumb" aria-label="breadcrumb" role="menu">
+            <ol>
+              <li><a href="@@webRoot" class="doc__breadcrumbLink" aria-level="1">Signo</a></li>
+              <li><a href="@@webRoot/design" class="doc__breadcrumbLink" aria-level="2">Design</a></li>
+              <li><a class="doc__breadcrumbLink" aria-level="3">Colors</a></li>
+            </ol>
+          </nav>
+          <div class="doc__toc">
+            <nav role="menu">
+              <a class="doc__tocLink js-toc doc__tocLink--active" href="#visual-identity-system">Visual identity system</a>
+              <a class="doc__tocLink js-toc" href="#primary-components">Primary components</a>
+              <a class="doc__tocLink js-toc" href="#secondary-components">Secondary components</a>
+              <div class="doc__progress">
+                <div class="doc__progressDone js-progress"></div>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </aside>
+      <article class="doc__article">
+        <div class="doc__update">Last updated <time datetime="2017-04-19" pubdate>April 19, 2017</time></div>
+        @@include(markdown('./markdown/colors.md'))
+      </article>
+    </main>
+    @@include('./templates/footer.html')
 
     <script src="@@webRoot/assets/js/main.js"></script>
     <script src="@@webRoot/assets/js/prism.js"></script>
+    @@if (context.build === "dev") {
+      @@include('./templates/_dev-scripts.html')
+    }
   </body>
 </html>
