@@ -2,14 +2,16 @@
  * Main JS entry file
  */
 
+import * as DomHelper from './dom-helper';
 import * as Analytics from './vendor/ga';
 import * as Header from './header';
 import * as Progress from './progress';
+import * as Search from './search';
 import ScrollTo from 'storm-scroll-to';
 
-const ToCLink = document.querySelector('.js-toc');
+DomHelper.init();
 
-if (ToCLink) {
+if (document.querySelector('.js-toc')) {
   ScrollTo.init('.js-toc', {
     easing: 'easeInOutCubic',
     speed: 800,
@@ -17,6 +19,7 @@ if (ToCLink) {
   });
 }
 
+Search.init();
 Header.headroom.init();
 Analytics.init();
 Progress.init();

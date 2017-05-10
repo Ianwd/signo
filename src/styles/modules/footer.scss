@@ -13,7 +13,7 @@
   letter-spacing: 0.5px;
   line-height: 18px;
 
-  h4 a::before,
+  h5 a::before,
   &__link::before {
     content: "";
     height: 1px;
@@ -26,12 +26,12 @@
     transform: translateX(-120%);
   }
 
-  h4 a:hover::before,
+  h5 a:hover::before,
   &__link:hover::before {
     transform: translateX(0);
   }
 
-  h4 {
+  h5 {
     color: inherit;
     font-size: inherit;
     font-weight: 600;
@@ -97,6 +97,7 @@
 
 .footer__item {
   list-style: none;
+  display: flex;
 }
 
 .footer__link {

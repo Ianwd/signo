@@ -23,6 +23,12 @@ export const headroom = new Headroom(header, {
   onUnpin: function() {
     onUnPin()
   },
+  onNotTop: function() {
+    notTop()
+  },
+  onTop: function() {
+    onTop()
+  },
 });
 
 /**
@@ -41,6 +47,28 @@ export function onPin() {
  */
 export function onUnPin() {
   if (bread) {
-    bread.className += ' doc__breadcrumb--top';
+    bread.classList.add('doc__breadcrumb--top');
+  }
+}
+
+/**
+ * [notTop description]
+ * @return {[type]} [description]
+ */
+export function notTop() {
+  if (header.classList.contains('header--light')) {
+    header.classList.remove('header--light');
+    header.classList.add('js-header-light');
+  }
+}
+
+/**
+ * [onTop description]
+ * @return {[type]} [description]
+ */
+export function onTop() {
+  if (header.classList.contains('js-header-light')) {
+    header.classList.remove('js-header-light');
+    header.classList.add('header--light');
   }
 }

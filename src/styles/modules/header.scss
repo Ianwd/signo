@@ -13,7 +13,7 @@
 
   &.js-header {
     position: fixed;
-    transition: transform .8s cubic-bezier(.2, 1, .25, 1);
+    transition: all .8s cubic-bezier(.2, 1, .25, 1);
   }
 
   &.js-header--pinned {
@@ -82,6 +82,7 @@
 }
 
 .nav__logo {
+  color: $white;
   display: inline-block;
   white-space: nowrap;
   user-select: none;
@@ -141,7 +142,8 @@
 
 .nav__search {
   position: relative;
-  flex-grow: 8.4;
+  // flex-grow: 8.4;
+  flex-grow: 9;
   cursor: text;
 
   svg {
@@ -175,7 +177,7 @@
   }
 }
 
-.nav__cancel-button {
+.search__cancelButton {
   border: 0;
   background-color: transparent;
   box-shadow: none;
@@ -183,12 +185,183 @@
   padding: 0;
   width: 44px;
   height: 44px;
-  top: 0;
   right: 0;
   background-image: url("../img/clear.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 12px;
   cursor: pointer;
-  display: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .6s cubic-bezier(.2, 1, .25, 1);
+}
+
+.search__cancelButton--visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.search__result {
+  position: absolute;
+  list-style: none;
+  padding: 0;
+  background-color: $white;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  top: 54px;
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  overflow: hidden;
+  transition: all .8s cubic-bezier(.2, 1, .25, 1);
+  width: 100%;
+  box-shadow: 0 5px 15px 0 rgba($white, .1), 0 15px 35px 0 rgba($space-cadet, .15), 0 50px 100px 0 rgba($space-cadet, .1);
+}
+
+.js-searchHidden {
+  visibility: hidden;
+  transform: translateY(-16px);
+  opacity: 0;
+  box-shadow: none;
+}
+
+.search__item {
+  &:first-child a {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+  }
+
+  &:last-child a {
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+
+  &--design {
+    .search__tag {
+      background-color: $design;
+    }
+
+    a::after {
+      background-color: rgba($design, .15);
+    }
+  }
+
+  &--develop {
+    .search__tag {
+      background-color: $dev;
+    }
+
+    a::after {
+      background-color: rgba($dev, .15);
+    }
+  }
+
+  &--learn {
+    .search__tag {
+      background-color: $learn;
+    }
+
+    a::after {
+      background-color: rgba($learn, .15);
+    }
+  }
+
+  &--tools {
+    .search__tag {
+      background-color: $tools;
+    }
+
+    a::after {
+      background-color: rgba($tools, .15);
+    }
+  }
+
+  a {
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    transition: color .6s cubic-bezier(.2, 1, .25, 1), padding .6s cubic-bezier(.2, 1, .25, 1);
+  }
+
+  a:hover {
+    padding-left: 40px;
+
+    &::before {
+      left: 16px;
+      opacity: 1;
+    }
+
+    &::after {
+      animation: searchRippleIn 2.4s cubic-bezier(.2, 1, .25, 1) forwards;
+    }
+  }
+
+  a::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 23px;
+    width: 11px;
+    height: 11px;
+    background-image: url("../img/arrow-right.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: invert(1);
+    opacity: 0;
+    transition: left .6s cubic-bezier(.2, 1, .25, 1), opacity .6s cubic-bezier(.2, 1, .25, 1);
+  }
+
+  a::after {
+    $radius: 200vw;
+    content: "";
+    opacity: 0;
+    transform: scale(0);
+    width: $radius;
+    height: $radius;
+    border-radius: $radius;
+    display: block;
+    position: absolute;
+    top: 50%;
+    margin-top: -($radius / 2);
+    left: -($radius / 2);
+    z-index: -1;
+    animation: searchRippleOut .8s cubic-bezier(.2, 1, .25, 1) forwards;
+  }
+}
+
+@keyframes searchRippleIn {
+  from {
+    opacity: 1;
+    transform: scale(0);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes searchRippleOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+.search__tag {
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  padding: 6px 6px 4px;
+  color: $white;
+  border-radius: 2px;
+  margin-left: 14px;
+  position: relative;
+  top: -2px;
+  transition: all .6s cubic-bezier(.2, 1, .25, 1);
 }

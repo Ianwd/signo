@@ -1,4 +1,5 @@
 import inView from 'in-view';
+import * as Viewport from './utils/viewport';
 
 const links = document.querySelectorAll('.js-toc');
 const inViewOptions = {
@@ -18,7 +19,7 @@ export function init() {
   if (el) {
     document.addEventListener('DOMContentLoaded', () => {
       el.style.transform = 'scaleY(0)';
-      update(el);
+      watchScroll(el);
     });
   }
 }
@@ -65,23 +66,63 @@ function viewUp(el) {
  * @param  {string} el HTML node
  * @return {undefined}
  */
-function update(el) {
+function updateProgress(el) {
+  const scrollValue = window.pageYOffset !== undefined ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+  const body = document.body;
+  const html = document.documentElement;
+  const deltaValue = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+  const currentValue = window.innerHeight;
+  const progress = Math.min(1, Math.max(0, scrollValue / (deltaValue - currentValue)));
+
+  el.style.transform = `scaleY(${progress})`;
+}
+
+/**
+ * Watch for titles in viewport
+ * @return {undefined}
+ */
+function watchTitles() {
   const titles = document.querySelectorAll('.doc__article h2');
 
-  window.addEventListener('scroll', () => {
-    const scrollValue = window.pageYOffset !== undefined ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
-    const body = document.body;
-    const html = document.documentElement;
-    const deltaValue = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
-    const currentValue = window.innerHeight;
-    const progress = Math.min(1, Math.max(0, scrollValue / (deltaValue - currentValue)));
+  if (titles) {
+    inView('.doc__article h2', inViewOptions).
+      on('enter', viewDown).
+      on('exit', viewUp);
+  }
+}
 
-    el.style.transform = `scaleY(${progress})`;
+/**
+ * Fade out sidebar content when
+ * footer comes in
+ * @return {undefined}
+ */
+function columnFade() {
+  if (inView.is(document.querySelector('.doc__readmore'))) {
+    const visible = Viewport.getScrollPosition(document.querySelector('.doc__readmore'));
 
-    if (titles) {
-      inView('.doc__article h2', inViewOptions).
-        on('enter', viewDown).
-        on('exit', viewUp);
+    if (visible <= 85) {
+      const column = document.querySelector('.doc__columnContent');
+      // Formula:
+      //  new_value = (old_value - old_bottom) / (old_top - old_bottom) * (new_top - new_bottom) + new_bottom;
+      const map = ((visible / 100) - 0) / (0.85 - 0) * (1 - 0) + 0;
+      console.log(map);
+
+      column.style.opacity = map.toFixed(2);
     }
-  });
+  }
+}
+
+/**
+ * Watch Scroll event
+ * @param  {string} el HTML node for Progress
+ * @return {undefined}
+ */
+function watchScroll(el) {
+  for (const ev of ['scroll', 'resize']) {
+    window.addEventListener(ev, () => {
+      updateProgress(el);
+      watchTitles();
+      columnFade();
+    });
+  }
 }

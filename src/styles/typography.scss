@@ -32,8 +32,16 @@ h3 {
 }
 
 h4 {
-  font-size: 18px;
   font-weight: 500;
+  font-size: 18px;
+  color: $jet;
+  letter-spacing: 0.3px;
+  line-height: 18px;
+}
+
+h5 {
+  font-size: 10px;
+  font-weight: 600;
   color: $jet;
   letter-spacing: 0.3px;
   line-height: 18px;
@@ -45,6 +53,11 @@ p {
   font-size: 16px;
   color: $jet;
   line-height: 32px;
+  margin: 16px 0;
+
+  b {
+    font-weight: 400;
+  }
 }
 
 article {

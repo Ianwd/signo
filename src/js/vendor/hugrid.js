@@ -176,7 +176,7 @@ $(document).ready(function() {/* GRID BASED ON 1040 WIDTH FOR 1440 VIEWPORT*/
   gutterwidth = 0;
   pagetopmargin = 0;
   rowheight = 0; /*8*/
-  gridonload = 'on';
+  gridonload = 'off';
   makehugrid();
   setgridonload();
 });

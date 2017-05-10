@@ -28,10 +28,10 @@
             </ol>
           </nav>
           <div class="doc__toc">
-            <nav role="menu">
-              <a class="doc__tocLink js-toc doc__tocLink--active" href="#visual-identity-system">Visual identity system</a>
-              <a class="doc__tocLink js-toc" href="#primary-components">Primary components</a>
-              <a class="doc__tocLink js-toc" href="#secondary-components">Secondary components</a>
+            <nav aria-label="Interactive table of content" role="menu">
+              <a class="doc__tocLink js-toc doc__tocLink--active" href="#contrast-ratio">Contrast ratio</a>
+              <a class="doc__tocLink js-toc" href="#color-blindness">Color blindness</a>
+              <a class="doc__tocLink js-toc" href="#sensory-information">Sensory information</a>
               <div class="doc__progress">
                 <div class="doc__progressDone js-progress"></div>
               </div>
@@ -44,6 +44,23 @@
         @@include(markdown('./markdown/colors.md'))
       </article>
     </main>
+    <aside class="doc__readmore">
+      <div class="container">
+
+        <div class="doc__cta">
+          <a href="">
+            <span>Previously</span>
+            Layout
+          </a>
+        </div>
+        <div class="doc__cta">
+          <a href="">
+            <span>Read next</span>
+            Writing
+          </a>
+        </div>
+      </div>
+    </aside>
     @@include('./templates/footer.html')
 
     <script src="@@webRoot/assets/js/main.js"></script>

@@ -32,6 +32,7 @@
 
 .pageHead__form {
   padding: 15px 0 208px;
+  position: relative;
 }
 
 .pageHead__search {
@@ -75,20 +76,41 @@
   }
 }
 
-.pageHead__cancel-button {
-  border: 0;
-  background-color: transparent;
-  box-shadow: none;
-  position: absolute;
-  padding: 0;
-  width: 44px;
-  height: 44px;
+.pageHead__searchResult {
+  margin: 16px 0;
+  box-shadow: 0 4px 10px 0 rgba($black, 0.05);
+  width: 100%;
+  max-width: 780px;
+  border-radius: 4px;
+  top: auto;
+}
+
+.pageHead .js-searchHidden {
+  transform: translateY(16px);
+}
+
+.pageHead__searchItem {
+  a {
+    text-decoration: none;
+    color: $space-cadet;
+    display: block;
+    padding: 6px 24px 0;
+    line-height: 49px;
+    border-bottom: 1px solid $alice-blue;
+  }
+}
+
+.pageHead .search__cancelButton {
   top: 9px;
   right: 10px;
-  background-image: url("../img/clear.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 12px;
-  cursor: pointer;
-  display: none;
+}
+
+.home__cards {
+  margin: 128px auto;
+
+  .container {
+    background-color: $white;
+    padding: 80px 0;
+    position: static;
+  }
 }

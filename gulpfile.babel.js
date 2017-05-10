@@ -25,7 +25,7 @@ markdown.marked.setOptions({
   tables: true,
   breaks: false,
   pedantic: false,
-  sanitize: true,//set to false to allow inline HTML
+  sanitize: false,//set to false to allow inline HTML
   smartLists: true,
   smartypants: true,
   langPrefix: 'numbered lang-'
@@ -70,7 +70,7 @@ gulp.task('img', () =>
 );
 
 gulp.task('sass', () => {
-  return gulp.src('./src/styles/main.scss')
+  return gulp.src(['./src/styles/main.scss', './src/styles/tfe.scss'])
     .pipe(util.env.type === 'dev' ? sourcemaps.init() : util.noop())
     .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
     // Default: nested. Values: nested, expanded, compact, compressed
