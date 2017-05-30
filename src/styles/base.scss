@@ -274,7 +274,7 @@ main {
   color: $white;
   text-decoration: none;
   text-transform: uppercase;
-  background-image: linear-gradient(90deg, rgba($black, 0) 0%, rgba($black, .1) 100%);
+  // background-image: linear-gradient(90deg, rgba($black, 0) 0%, rgba($black, .1) 100%);
   box-shadow: 0 1px 3px 0 rgba($black, .07), 0 4px 6px 0 rgba($space-cadet, .1);
   border-radius: 4px;
   font-weight: 500;
@@ -283,22 +283,69 @@ main {
   line-height: 18px;
   padding: 19px 52px 17px 18px;
   position: relative;
+  overflow: hidden;
+  display: inline-block;
   transition: box-shadow .8s cubic-bezier(.2, 1, .25, 1);
+
+  &::before {
+    content: "";
+    width: 200%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    display: block;
+    background-image: linear-gradient(90deg, rgba($black, 0) 0%, rgba($black, .1) 50%, rgba($black, 0) 100%);
+    transition: all 1.6s cubic-bezier(.2, 1, .25, 1);
+  }
 
   &::after {
     content: "";
     width: 11px;
     height: 11px;
-    background-image: url("../img/arrow-right.svg");
-    background-size: contain;
-    background-repeat: no-repeat;
+    // background-image: url("../img/arrow-right.svg");
+    // background-size: contain;
+    // background-repeat: no-repeat;
+    background-color: $white;
+    mask-image: url("../img/arrow-right.svg");
     position: absolute;
-    top: 19.5px;
+    top: 21px;
     right: 18px;
   }
 
   &:hover {
     box-shadow: 0 7px 14px 1px rgba(50,50,93,0.10), 0 3px 6px 1px rgba(0,0,0,0.07);
+
+    &::before {
+      transform: translateX(-50%);
+      opacity: .3;
+    }
+
+    &::after {
+      animation: buttonArrow .8s cubic-bezier(.2, 1, .25, 1);
+    }
+  }
+}
+
+@keyframes buttonArrow {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  49% {
+    transform: translateX(8px);
+    opacity: 0;
+  }
+
+  51% {
+    transform: translateX(-8px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
   }
 }
 
@@ -316,4 +363,90 @@ main {
 
 .button--learn {
   background-color: $learn;
+}
+
+.button--contrast {
+  font-family: "Axiforma";
+  border: 0;
+  cursor: pointer;
+
+  &::after {
+    top: 21.5px;
+  }
+}
+
+.button--ghost {
+  color: $white;
+  background: none;
+  margin-left: -16px;
+  padding: 19px 52px 17px 18px;
+  box-shadow: none;
+  position: relative;
+  transition: color .8s cubic-bezier(.2, 1, .25, 1);
+
+  &::after {
+    transform: rotate(90deg);
+    // transition: all .8s cubic-bezier(.2, 1, .25, 1);
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 17px;
+    width: calc(100% - 34px);
+    height: 2px;
+    background-color: $white;
+    background-image: none;
+    transition: all .8s cubic-bezier(.2, 1, .25, 1);
+  }
+
+  &:hover {
+    box-shadow: none;
+    color: $space-cadet;
+
+    // &::before {
+    //   width: calc(100% - 69px);
+    //   transform: translateY(-4px);
+    // }
+
+    &::before {
+      width: 100%;
+      transform: translateX(-17px);
+      height: 100%;
+      border-radius: 4px;
+      z-index: -1;
+      opacity: 1;
+    }
+
+    &::after {
+      animation: buttonArrowDown .8s cubic-bezier(.2, 1, .25, 1);
+      // transform: rotate(180deg);
+      background-color: $space-cadet;
+    }
+  }
+}
+
+@keyframes buttonArrowDown {
+  0% {
+    transform: translateY(0) rotate(90deg);
+    opacity: 1;
+  }
+
+  49% {
+    transform: translateY(8px) rotate(90deg);
+    opacity: 0;
+  }
+
+  51% {
+    transform: translateY(-8px) rotate(90deg);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0) rotate(90deg);
+    opacity: 1;
+  }
 }

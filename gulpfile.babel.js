@@ -11,12 +11,9 @@ import sitemap from 'gulp-sitemap';
 import util from 'gulp-util';
 import concat from 'gulp-concat';
 import uglify from 'gulp-uglify';
-//import babel from 'gulp-babel';
 import webpack from 'webpack-stream';
 import copyWebpack from 'copy-webpack-plugin';
 import through from 'through2';
-// import rollup from 'gulp-better-rollup';
-// import babel from 'rollup-plugin-babel';
 import imagemin from 'gulp-imagemin';
 
 markdown.marked.setOptions({

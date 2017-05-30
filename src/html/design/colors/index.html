@@ -5,7 +5,7 @@
     @@include('./templates/head.html', {
       "page-title": "Colors - Design | signo",
       "page-desc": "desc",
-      "og-url": "/colors"
+      "og-url": "/design/colors"
     })
   </head>
   <body>
@@ -18,17 +18,17 @@
       "header-theme": ""
     })
     <main class="doc" data-sticky-container>
-      <aside class="doc__column" role="navigation">
+      <aside class="doc__column">
         <div class="doc__columnContent" role="menubar">
-          <nav class="doc__breadcrumb" aria-label="breadcrumb" role="menu">
+          <nav class="doc__breadcrumb" aria-label="breadcrumb">
             <ol>
-              <li><a href="@@webRoot" class="doc__breadcrumbLink" aria-level="1">Signo</a></li>
-              <li><a href="@@webRoot/design" class="doc__breadcrumbLink" aria-level="2">Design</a></li>
-              <li><a class="doc__breadcrumbLink" aria-level="3">Colors</a></li>
+              <li><a href="@@webRoot" class="doc__breadcrumbLink">Signo</a></li>
+              <li><a href="@@webRoot/design" class="doc__breadcrumbLink">Design</a></li>
+              <li><a class="doc__breadcrumbLink">Colors</a></li>
             </ol>
           </nav>
           <div class="doc__toc">
-            <nav aria-label="Interactive table of content" role="menu">
+            <nav aria-label="Interactive table of content">
               <a class="doc__tocLink js-toc doc__tocLink--active" href="#contrast-ratio">Contrast ratio</a>
               <a class="doc__tocLink js-toc" href="#color-blindness">Color blindness</a>
               <a class="doc__tocLink js-toc" href="#sensory-information">Sensory information</a>
@@ -40,8 +40,8 @@
         </div>
       </aside>
       <article class="doc__article">
-        <div class="doc__update">Last updated <time datetime="2017-04-19" pubdate>April 19, 2017</time></div>
-        @@include(markdown('./markdown/colors.md'))
+        <div class="doc__update">Last updated <time datetime="2017-04-19">April 19, 2017</time></div>
+        @@include(markdown('./markdown/design/colors.md'))
       </article>
     </main>
     <aside class="doc__readmore">

@@ -1,0 +1,27 @@
+.legal {
+
+  .container {
+    padding: 186px 130px 120px;
+    background-color: $white;
+  }
+}
+
+.legal__text {
+  padding: 24px 48px;
+  border-radius: 8px;
+  background: rgba($alice-blue, .4);
+  margin: 32px 0 64px;
+
+  p {
+    color: $black;
+    font-family: "SourceCodePro", monospace;
+    font-weight: 400;
+    font-size: 16px;
+    text-align: left;
+    text-shadow: none;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+  }
+}

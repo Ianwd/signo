@@ -1,0 +1,67 @@
+<!-- /develop/mobile -->
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    @@include('./templates/head.html', {
+      "page-title": "Mobile – Develop – signo",
+      "page-desc": "desc",
+      "og-url": "/develop/mobile"
+    })
+  </head>
+  <body>
+    @@include('./templates/header.html', {
+      "active-design": "",
+      "active-dev": "",
+      "active-tools": "",
+      "active-learn": "",
+      "search": true,
+      "header-theme": ""
+    })
+
+    <main>
+      <header class="pageHead pageHead--category pageHead--devMobile">
+        <div class="container">
+          <nav>
+            <ul class="pageHead__nav">
+              <li class="pageHead__navTitle">
+                <h3>Develop for Mobile</h3>
+              </li>
+              <li class="pageHead__navLinks">
+                <a href="" class="pageHead__link">iOS</a>
+                <a href="" class="pageHead__link">Android</a>
+                <a href="" class="pageHead__link">Windows Phone</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="pageHead__content">
+            <h4>
+              An universal approach
+            </h4>
+            <h1>
+              Building with <b>assistive technology</b>
+            </h1>
+            <a href="@@webRoot/design" class="button button--ghost">Check the development kits</a>
+          </div>
+        </div>
+      </header>
+      <section class="card card--white">
+        <div class="container">
+          <h3>What is signo?</h3>
+          <p>
+            Signo is an initiative developed as a toolbox to help anyone design and develop accessible experiences for screens. Inclusiveness is currently not part of most of design processes, and that is what signo is aiming to change.
+          </p>
+          <p>
+            Accessiblity is what allows people with impairments to enjoy a meaningful screen experience, from their computer to their phone. Although guidelines have been defined, few people know about them. Crafting for everyone involves a particular understanding, which then comes as a habit.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    @@include('./templates/footer.html')
+
+    <script src="@@webRoot/assets/js/main.js"></script>
+    @@if (context.build === "dev") {
+      @@include('./templates/_dev-scripts.html')
+    }
+  </body>
+</html>

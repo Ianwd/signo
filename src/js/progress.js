@@ -105,7 +105,6 @@ function columnFade() {
       // Formula:
       //  new_value = (old_value - old_bottom) / (old_top - old_bottom) * (new_top - new_bottom) + new_bottom;
       const map = ((visible / 100) - 0) / (0.85 - 0) * (1 - 0) + 0;
-      console.log(map);
 
       column.style.opacity = map.toFixed(2);
     }

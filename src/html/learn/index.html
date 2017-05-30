@@ -1,0 +1,66 @@
+<!-- /learn -->
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    @@include('./templates/head.html', {
+      "page-title": "Learn – signo",
+      "page-desc": "desc",
+      "og-url": "/learn"
+    })
+  </head>
+  <body>
+    @@include('./templates/header.html', {
+      "active-design": "",
+      "active-dev": "",
+      "active-tools": "",
+      "active-learn": "nav__link--active",
+      "search": true,
+      "header-theme": ""
+    })
+
+    <main>
+      <header class="pageHead pageHead--category pageHead--learn">
+        <div class="container">
+          <nav>
+            <ul class="pageHead__nav">
+              <li class="pageHead__navTitle">
+                <h3>Learn</h3>
+              </li>
+              <li class="pageHead__navLinks">
+                <a href="@@webRoot/learn/impairments" class="pageHead__link">Impairments</a>
+                <a href="@@webRoot/learn/impairments" class="pageHead__link">Laws</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="pageHead__content">
+            <h4>
+              A new design thinking
+            </h4>
+            <h1>
+              Building with <b>assistive technology</b>
+            </h1>
+            <a href="@@webRoot/design" class="button button--ghost">Know your way around</a>
+          </div>
+        </div>
+      </header>
+      <section class="card card--white">
+        <div class="container">
+          <h3>What is signo?</h3>
+          <p>
+            Signo is an initiative developed as a toolbox to help anyone design and develop accessible experiences for screens. Inclusiveness is currently not part of most of design processes, and that is what signo is aiming to change.
+          </p>
+          <p>
+            Accessiblity is what allows people with impairments to enjoy a meaningful screen experience, from their computer to their phone. Although guidelines have been defined, few people know about them. Crafting for everyone involves a particular understanding, which then comes as a habit.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    @@include('./templates/footer.html')
+
+    <script src="@@webRoot/assets/js/main.js"></script>
+    @@if (context.build === "dev") {
+      @@include('./templates/_dev-scripts.html')
+    }
+  </body>
+</html>

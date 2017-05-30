@@ -1,0 +1,134 @@
+<!-- /tools/contrast -->
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    @@include('./templates/head.html', {
+      "page-title": "Color Contrast – signo",
+      "page-desc": "desc",
+      "og-url": "/tools/contrast"
+    })
+  </head>
+  <body>
+    @@include('./templates/header.html', {
+      "active-design": "",
+      "active-dev": "",
+      "active-tools": "",
+      "active-learn": "",
+      "search": false,
+      "header-theme": ""
+    })
+
+    <main class="colorApp">
+      <noscript>
+        <div class="disabled">
+          We need JavaScript to make it work between us 😞
+        </div>
+      </noscript>
+      <section class="landing js-firstStep">
+        <div class="container">
+          <h4>
+            Readability for everyone
+          </h4>
+          <h1>
+            Making sure form does <b>follow function</b> on screens
+          </h1>
+          <button class="button button--design button--contrast js-start">Check your contrast</button>
+        </div>
+      </section>
+      <section class="app js-secondStep" style="display: none;">
+        <div class="container">
+          <h1>Choose your colors</h1>
+          <div class="inputsContainer">
+            <div class="inputs">
+              <div class="inputGroup">
+                <label for="foreground">Foreground color</label>
+                <input class="js-foregroundInputLanding" type="text" placeholder="Enter foreground color…" autocorrect="off" autocomplete="off" spellcheck="false" name="foreground" id="foreground" value="#000000">
+              </div>
+              <div class="switchAnim">
+                <button class="switchColors js-switch" aria-label="Switch foreground and background"></button>
+              </div>
+              <div class="inputGroup">
+                <label for="background">Background color</label>
+                <input class="js-backgroundInputLanding" type="text" placeholder="Enter background color…" autocorrect="off" autocomplete="off" spellcheck="false" name="background" id="background" value="#FFF000">
+              </div>
+            </div>
+          </div>
+          <div class="generate">
+            <button class="button button--design button--contrast js-generate">Check your contrast ratio</button>
+          </div>
+          <div class="tip">
+            Color format supports Hex, 8-digit (RGBA) Hex, RGB, RGBA, HSL, HSLA, HSV, HSVA, or named colors. Write it any way you want 👌
+          </div>
+        </div>
+      </section>
+      <section class="finalScreen js-thirdStep" style="display: none;">
+        <div class="interface">
+          <div class="container">
+            <div class="navigation">
+              <fieldset class="js-fieldset">
+                <label for="foregroundEnd">Foreground color</label>
+                <input class="js-foregroundInput" type="text" placeholder="Enter color…" autocorrect="off" autocomplete="off" spellcheck="false" name="foregroundEnd" id="foregroundEnd" value="#000000">
+              </fieldset>
+              <button class="switchColors js-switch" aria-label="Switch foreground and background"></button>
+              <fieldset class="js-fieldset">
+                <label for="backgroundEnd">Background color</label>
+                <input class="js-backgroundInput" type="text" placeholder="Enter color…" autocorrect="off" autocomplete="off" spellcheck="false" name="backgroundEnd" id="backgroundEnd" value="#FFF000">
+              </fieldset>
+              <div class="navGroup">
+                Large text
+                <span class="validBadge js-validationLargeText">WCAG AAA</span>
+              </div>
+              <div class="navGroup">
+                Normal text
+                <span class="validBadge js-validationSmallText">WCAG AAA</span>
+              </div>
+              <div class="navGroup">
+                Current color ratio
+                <span class="ratioBadge"><span class="js-currentContrast">0.0</span>:1</span>
+              </div>
+            </div>
+          </div>
+          <div class="typography">
+            <div class="typography__large">
+              A good quick jab of a pen may vex Will Shortz.
+            </div>
+            <div class="typography__small">
+              Society excited by cottage private an it esteems. Fully begin on by wound an. Girl rich in do up or both. At declared in as rejoiced of together. He impression collecting delightful unpleasant by prosperous as on. End too talent she object mrs wanted remove giving.<br />
+              In friendship diminution instrument so. Son sure paid door with say them. Two among sir sorry men court. Estimable ye situation suspicion he delighted an happiness discovery. Fact are size cold why had part. If believing or sweetness otherwise in we forfeited. Tolerably an unwilling arranging of determine. Beyond rather sooner so if up wishes or<br />
+              Preserved defective offending he daughters on or. Rejoiced prospect yet material servants out answered men admitted. Sportsmen certainty prevailed suspected am as. Add stairs admire all answer the nearer yet length. Advantages prosperous remarkably my inhabiting so reasonably be if. Too any appearance announcing impossible one. Out mrs means heart ham tears shall power every
+            </div>
+          </div>
+          <div class="colorError colorError--ratio js-contrastMsg">
+            <div class="container">
+              Your color contrast ratio is not fully optimal. Check out some compatible colors 👇
+            </div>
+          </div>
+          <div class="colorError js-validationError">
+            <div class="container">
+              More than 16 million colors… Yet you managed to find one which doesn't exist 😁
+            </div>
+          </div>
+          <button class="paletteGen js-renew" aria-label="Generate new accessible colors"></button>
+        </div>
+        <div class="hues huesDown js-hues">
+          <div class="palette js-palette">
+            <div role="button" class="hue js-hue" style="background-color: red;"></div>
+            <div role="button" class="hue js-hue" style="background-color: blue;"></div>
+            <div role="button" class="hue hue--main js-mainHue" style="background-color: white;"></div>
+            <div role="button" class="hue js-hue" style="background-color: yellow;"></div>
+            <div role="button" class="hue js-hue" style="background-color: orange;"></div>
+          </div>
+          <div class="hue--input js-bgHue" style="background-color: red;"></div>
+        </div>
+      </section>
+    </main>
+
+    @@include('./templates/footer.html')
+
+    <script src="@@webRoot/assets/js/main.js"></script>
+    <script src="@@webRoot/assets/js/color.js"></script>
+    @@if (context.build === "dev") {
+      @@include('./templates/_dev-scripts.html')
+    }
+  </body>
+</html>

@@ -21,3 +21,15 @@
     @content;
   }
 }
+
+@mixin media-2x() {
+  @media (min-resolution: 144dpi), (min-device-pixel-ratio: 1.25), (-webkit-min-device-pixel-ratio: 2) {
+    @content;
+ }
+}
+
+@mixin media-3x() {
+  @media (min-resolution: 288dpi), (min-device-pixel-ratio: 2.25), (-webkit-min-device-pixel-ratio: 3) {
+    @content;
+  }
+}

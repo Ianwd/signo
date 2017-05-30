@@ -34,8 +34,6 @@
     "eslint": "^3.19.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
-    "gulp-babel": "^6.1.2",
-    "gulp-better-rollup": "^1.1.1",
     "gulp-clean-css": "^3.0.4",
     "gulp-concat": "^2.6.1",
     "gulp-file-include": "^1.1.0",
@@ -51,15 +49,16 @@
     "gulp-util": "^3.0.8",
     "markdown": "^0.5.0",
     "markdownlint-cli": "^0.3.1",
-    "rollup-plugin-babel": "^2.7.1",
     "superagent": "^3.5.2",
     "through2": "^2.0.3",
     "webpack": "^2.5.0",
     "webpack-stream": "^3.2.0"
   },
   "dependencies": {
+    "codemirror-colorpicker": "^1.0.7",
     "headroom.js": "^0.9.3",
     "in-view": "^0.6.1",
-    "storm-scroll-to": "^1.0.4"
+    "storm-scroll-to": "^1.0.4",
+    "tinycolor2": "^1.4.1"
   }
 }

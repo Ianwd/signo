@@ -1,0 +1,73 @@
+<!-- /develop/web/semantic -->
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    @@include('./templates/head.html', {
+      "page-title": "Semantic – Web - Develop | signo",
+      "page-desc": "desc",
+      "og-url": "/develop/web/semantic"
+    })
+  </head>
+  <body>
+    @@include('./templates/header.html', {
+      "active-design": "",
+      "active-dev": "",
+      "active-tools": "",
+      "active-learn": "",
+      "search": true,
+      "header-theme": ""
+    })
+    <main class="doc" data-sticky-container>
+      <aside class="doc__column" role="navigation">
+        <div class="doc__columnContent" role="menubar">
+          <nav class="doc__breadcrumb" aria-label="breadcrumb">
+            <ol>
+              <li><a href="@@webRoot" class="doc__breadcrumbLink">Signo</a></li>
+              <li><a href="@@webRoot/develop" class="doc__breadcrumbLink">Develop</a></li>
+              <li><a href="@@webRoot/develop/web" class="doc__breadcrumbLink">Web</a></li>
+              <li><a class="doc__breadcrumbLink">Semantic</a></li>
+            </ol>
+          </nav>
+          <div class="doc__toc">
+            <nav aria-label="Interactive table of content">
+              <a class="doc__tocLink js-toc doc__tocLink--active" href="#contrast-ratio">Contrast ratio</a>
+              <a class="doc__tocLink js-toc" href="#color-blindness">Color blindness</a>
+              <a class="doc__tocLink js-toc" href="#sensory-information">Sensory information</a>
+              <div class="doc__progress">
+                <div class="doc__progressDone js-progress"></div>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </aside>
+      <article class="doc__article">
+        <div class="doc__update">Last updated <time datetime="2017-04-19">April 19, 2017</time></div>
+        @@include(markdown('./markdown/develop/web/semantic.md'))
+      </article>
+    </main>
+    <aside class="doc__readmore">
+      <div class="container">
+
+        <div class="doc__cta">
+          <a href="">
+            <span>Previously</span>
+            Layout
+          </a>
+        </div>
+        <div class="doc__cta">
+          <a href="">
+            <span>Read next</span>
+            Writing
+          </a>
+        </div>
+      </div>
+    </aside>
+    @@include('./templates/footer.html')
+
+    <script src="@@webRoot/assets/js/main.js"></script>
+    <script src="@@webRoot/assets/js/prism.js"></script>
+    @@if (context.build === "dev") {
+      @@include('./templates/_dev-scripts.html')
+    }
+  </body>
+</html>

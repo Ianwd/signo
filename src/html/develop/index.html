@@ -1,0 +1,79 @@
+<!-- /develop -->
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    @@include('./templates/head.html', {
+      "page-title": "Develop – signo",
+      "page-desc": "desc",
+      "og-url": "/develop"
+    })
+  </head>
+  <body>
+    @@include('./templates/header.html', {
+      "active-design": "",
+      "active-dev": "nav__link--active",
+      "active-tools": "",
+      "active-learn": "",
+      "search": true,
+      "header-theme": ""
+    })
+
+    <main>
+      <header class="pageHead pageHead--category pageHead--dev">
+        <div class="container">
+          <nav>
+            <ul class="pageHead__nav">
+              <li class="pageHead__navTitle">
+                <h3>Develop</h3>
+              </li>
+              <li class="pageHead__navLinks">
+                <a href="@@webRoot/develop/web" class="pageHead__link">Web</a>
+                <a href="@@webRoot/develop/mobile" class="pageHead__link">Mobile</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="pageHead__content">
+            <div class="pageHead__left">
+              <h1>
+                Develop for the Web
+              </h1>
+              <a href="@@webRoot/develop/web" class="button button--ghost">Read our development tips</a>
+            </div>
+            <div class="pageHead__right">
+              <h1>
+                Develop for Mobile
+              </h1>
+              <a href="@@webRoot/develop/mobile" class="button button--ghost">Check the development kits</a>
+            </div>
+          </div>
+        </div>
+        <div class="pageHead__splitBg">
+          <div class="pageHead__splitLeft">
+            <div class="pageHead__skewBg"></div>
+          </div>
+          <div class="pageHead__splitRight">
+            <div class="pageHead__skewBg"></div>
+          </div>
+        </div>
+      </header>
+      <section class="card card--white">
+        <div class="container">
+          <h3>What is signo?</h3>
+          <p>
+            Signo is an initiative developed as a toolbox to help anyone design and develop accessible experiences for screens. Inclusiveness is currently not part of most of design processes, and that is what signo is aiming to change.
+          </p>
+          <p>
+            Accessiblity is what allows people with impairments to enjoy a meaningful screen experience, from their computer to their phone. Although guidelines have been defined, few people know about them. Crafting for everyone involves a particular understanding, which then comes as a habit.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    @@include('./templates/footer.html')
+
+    <script src="@@webRoot/assets/js/main.js"></script>
+    @@if (context.build === "dev") {
+      @@include('./templates/_dev-scripts.html')
+    }
+  </body>
+</html>

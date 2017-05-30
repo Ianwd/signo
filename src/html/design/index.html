@@ -1,0 +1,68 @@
+<!-- /design -->
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    @@include('./templates/head.html', {
+      "page-title": "Design – signo",
+      "page-desc": "desc",
+      "og-url": "/design"
+    })
+  </head>
+  <body>
+    @@include('./templates/header.html', {
+      "active-design": "nav__link--active",
+      "active-dev": "",
+      "active-tools": "",
+      "active-learn": "",
+      "search": true,
+      "header-theme": ""
+    })
+
+    <main>
+      <header class="pageHead pageHead--category pageHead--design">
+        <div class="container">
+          <nav>
+            <ul class="pageHead__nav">
+              <li class="pageHead__navTitle">
+                <h3>Design</h3>
+              </li>
+              <li class="pageHead__navLinks">
+                <a href="@@webRoot/design/colors" class="pageHead__link">Colors</a>
+                <a href="@@webRoot/design/writing" class="pageHead__link">Writing</a>
+                <a href="@@webRoot/design/focus" class="pageHead__link">Focus</a>
+                <a href="@@webRoot/design/motion" class="pageHead__link">Motion</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="pageHead__content">
+            <h4>
+              A new design thinking
+            </h4>
+            <h1>
+              Crafting inclusive <b>digital experiences</b>
+            </h1>
+            <a href="@@webRoot/design" class="button button--ghost">Read our design tips</a>
+          </div>
+        </div>
+      </header>
+      <section class="card card--white">
+        <div class="container">
+          <h3>What is signo?</h3>
+          <p>
+            Signo is an initiative developed as a toolbox to help anyone design and develop accessible experiences for screens. Inclusiveness is currently not part of most of design processes, and that is what signo is aiming to change.
+          </p>
+          <p>
+            Accessiblity is what allows people with impairments to enjoy a meaningful screen experience, from their computer to their phone. Although guidelines have been defined, few people know about them. Crafting for everyone involves a particular understanding, which then comes as a habit.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    @@include('./templates/footer.html')
+
+    <script src="@@webRoot/assets/js/main.js"></script>
+    @@if (context.build === "dev") {
+      @@include('./templates/_dev-scripts.html')
+    }
+  </body>
+</html>
