@@ -1,8 +1,8 @@
 h1 {
   font-weight: 100;
-  font-size: 52px;
+  font-size: 48px;
   color: $jet;
-  line-height: 62px;
+  line-height: 58px;
   letter-spacing: -0.1px;
   margin: 0;
 
@@ -10,14 +10,24 @@ h1 {
     font-weight: 300;
     letter-spacing: -0.2px;
   }
+
+  @include break(m) {
+    font-size: 52px;
+    line-height: 62px;
+  }
 }
 
 h2 {
   font-weight: 300;
-  font-size: 40px;
+  font-size: 24px;
   color: $jet;
   letter-spacing: 1px;
-  line-height: 48px;
+  line-height: 28px;
+
+  @include break(m) {
+    font-size: 40px;
+    line-height: 48px;
+  }
 
   b {
     font-weight: 400;
@@ -26,17 +36,27 @@ h2 {
 
 h3 {
   font-weight: 500;
-  font-size: 18px;
-  line-height: 36px;
+  font-size: 16px;
+  line-height: 32px;
   color: $jet;
+
+  @include break(m) {
+    font-size: 18px;
+    line-height: 36px;
+  }
 }
 
 h4 {
   font-weight: 500;
-  font-size: 18px;
+  font-size: 16px;
   color: $jet;
   letter-spacing: 0.3px;
-  line-height: 18px;
+  line-height: 16px;
+
+  @include break(m) {
+    font-size: 18px;
+    line-height: 18px;
+  }
 }
 
 h5 {
@@ -57,6 +77,17 @@ p {
 
   b {
     font-weight: 400;
+
+    a {
+      border-bottom-width: 2px;
+    }
+  }
+
+  a {
+    color: lighten($space-cadet, 20);
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    position: relative;
   }
 }
 

@@ -9,19 +9,14 @@ body {
   font-weight: 400;
   background-color: $alice-blue;
   background-image: url("../img/pattern.svg");
-  background-size: 100%;
+  background-size: 300%;
   background-repeat: repeat;
   text-rendering: optimizeLegibility;
-}
+  font-feature-settings: "kern";
 
-.dev {
-  position: absolute;
-  width: 1440px;
-  height: 1900px;
-  background-image: url("../img/_devHome.png");
-  background-size: contain;
-  top: 0;
-  z-index: -1;
+  @include break(s) {
+    background-size: 100%;
+  }
 }
 
 .sr {
@@ -47,6 +42,7 @@ main {
   margin: 0 auto;
   position: relative;
   z-index: 1;
+  padding: 0 32px;
 
   &--7 {
     max-width: calc(130px * 7);
@@ -63,14 +59,13 @@ main {
   &--4 {
     max-width: calc(130px * 4);
   }
-}
 
-.pageHead {
-  position: relative;
+  @include break(s) {
+    padding: 0 64px;
+  }
 
-  .container {
-    position: relative;
-    z-index: 1;
+  @include break(m) {
+    padding: 0;
   }
 }
 
@@ -86,10 +81,20 @@ main {
   margin-bottom: 208px;
 
   .container {
-    // padding: 48px 130px 48px 0;
-    padding: 48px 0;
+    padding: 48px 32px;
+    width: calc(100% - 32px);
+    margin-left: 0;
     z-index: 0;
-    // max-width: 520px;
+
+    @include break(xs) {
+      width: calc(100% - 8.53vw);
+    }
+
+    @include break(l) {
+      margin-left: auto;
+      width: 100%;
+      padding: 48px 0;
+    }
 
     h3,
     p {
@@ -129,12 +134,158 @@ main {
   }
 }
 
-.card--gridOffsetLeft {
+.card--fromRight {
+  margin-bottom: 208px;
 
+  .container {
+    padding: 48px 32px;
+    width: calc(100% - 32px);
+    margin-right: 0;
+    z-index: 0;
+
+    @include break(xs) {
+      width: calc(100% - 8.53vw);
+    }
+
+    @include break(l) {
+      margin-right: auto;
+      width: 100%;
+      padding: 48px 0;
+    }
+
+    h3,
+    p {
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 0;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 36px;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -80px;
+      // width: 100%;
+      left: 0;
+      right: -100vw;
+      height: 80px;
+      background-color: inherit;
+      z-index: -1;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      background-color: inherit;
+      top: 0;
+      bottom: -80px;
+      left: 0;
+      right: -100vw;
+      z-index: -1;
+    }
+  }
 }
 
-.card--gridOffsetRight {
+.card--home {
+  margin-top: 288px;
+}
 
+.card--halfPic {
+  margin-bottom: 208px;
+
+  @include break(s) {
+    margin-bottom: 288px;
+  }
+
+  .container {
+    display: block;
+
+    @include break(s) {
+      display: flex;
+    }
+  }
+
+  .wrapper {
+    max-width: 520px;
+    width: 100%;
+    background-color: $white;
+    position: relative;
+    // padding-right: 32px;
+    padding: 48px 32px 48px 0;
+    flex-shrink: 0;
+
+    &::after {
+      content: "";
+      position: absolute;
+      background-color: inherit;
+      top: -80px;
+      bottom: -80px;
+      left: -100vw;
+      right: 0;
+      z-index: -1;
+    }
+
+    @include break(xs) {
+      padding-right: 130px;
+    }
+  }
+
+  h3 {
+    margin-top: 0;
+  }
+
+  .img {
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    // height: 100%;
+    // width: calc(100% - 32px);
+    // left: 64px;
+    // top: 0;
+    // bottom: -48px;
+    margin-left: -32px;
+    height: 320px;
+    max-width: calc(520px + 32px);
+
+    @include break(s) {
+      height: auto;
+      max-width: none;
+      z-index: -2;
+      margin-left: 0;
+      margin-right: -64px;
+      flex-grow: 1;
+      flex-shrink: 0;
+    }
+
+    @include break(l) {
+      width: 50vw;
+    }
+    //
+    // @include break(s) {
+    //   left: 50%;
+    //   width: 50vw;
+    //   transform: none;
+    // }
+  }
+
+  &--about {
+    .img {
+      background-image: url("../img/about-pic.jpg");
+
+      @include media-2x {
+        background-image: url("../img/about-pic@2x.jpg");
+      }
+
+      @include media-3x {
+        background-image: url("../img/about-pic@3x.jpg");
+      }
+    }
+  }
 }
 
 .card--white {
@@ -170,8 +321,6 @@ main {
     top: 0;
     bottom: 0;
     width: 64px;
-    background-repeat: no-repeat;
-    background-size: contain;
   }
 
   &::after {
@@ -189,16 +338,31 @@ main {
   &:last-of-type {
     margin: 0;
   }
+
+  &:last-of-type {
+    margin-left: -64px;
+
+    @include break(l) {
+      margin-left: 0;
+    }
+  }
 }
 
 .card--design {
   &::before {
     background-color: $design;
-    background-image: url("../img/pattern-design.svg");
   }
 
   &::after {
     background-image: url("../img/card-design.jpg");
+
+    @include media-2x {
+      background-image: url("../img/card-design@2x.jpg");
+    }
+
+    @include media-3x {
+      background-image: url("../img/card-design@3x.jpg");
+    }
   }
 }
 
@@ -210,22 +374,36 @@ main {
 
   &::before {
     background-color: $dev;
-    background-image: url("../img/pattern-dev.svg");
   }
 
   &::after {
     background-image: url("../img/card-develop.jpg");
+
+    @include media-2x {
+      background-image: url("../img/card-develop@2x.jpg");
+    }
+
+    @include media-3x {
+      background-image: url("../img/card-develop@3x.jpg");
+    }
   }
 }
 
 .card--tools {
   &::before {
     background-color: $tools;
-    background-image: url("../img/pattern-tools.svg");
   }
 
   &::after {
     background-image: url("../img/card-tools.jpg");
+
+    @include media-2x {
+      background-image: url("../img/card-tools@2x.jpg");
+    }
+
+    @include media-3x {
+      background-image: url("../img/card-tools@3x.jpg");
+    }
   }
 }
 
@@ -237,31 +415,65 @@ main {
 
   &::before {
     background-color: $learn;
-    background-image: url("../img/pattern-learn.svg");
   }
 
   &::after {
     background-image: url("../img/card-learn.jpg");
+
+    @include media-2x {
+      background-image: url("../img/card-learn@2x.jpg");
+    }
+
+    @include media-3x {
+      background-image: url("../img/card-learn@3x.jpg");
+    }
   }
 }
 
 .card--left {
-  padding-left: 390px;
+  padding-left: 0;
+
+  @include break(l) {
+    padding-left: 390px;
+  }
 
   &::before {
-    right: -32px;
+    right: -64px;
+
+    @include break(s) {
+      right: -32px;
+    }
   }
 
   &::after {
+    background-position: right;
     margin-left: -15vw;
+
+    @include break(l) {
+      background-position: unset;
+    }
   }
 }
 
 .card--right {
-  padding-left: 130px;
+  padding-left: 64px;
+  margin-left: -64px;
+
+  @include break(s) {
+    padding-left: 96px;
+  }
+
+  @include break(l) {
+    padding-left: 130px;
+    margin-left: 0;
+  }
 
   &::before {
     left: -32px;
+
+    @include break(s) {
+      left: -32px;
+    }
   }
 
   &::after {
@@ -274,7 +486,6 @@ main {
   color: $white;
   text-decoration: none;
   text-transform: uppercase;
-  // background-image: linear-gradient(90deg, rgba($black, 0) 0%, rgba($black, .1) 100%);
   box-shadow: 0 1px 3px 0 rgba($black, .07), 0 4px 6px 0 rgba($space-cadet, .1);
   border-radius: 4px;
   font-weight: 500;
@@ -303,9 +514,6 @@ main {
     content: "";
     width: 11px;
     height: 11px;
-    // background-image: url("../img/arrow-right.svg");
-    // background-size: contain;
-    // background-repeat: no-repeat;
     background-color: $white;
     mask-image: url("../img/arrow-right.svg");
     position: absolute;
@@ -314,7 +522,7 @@ main {
   }
 
   &:hover {
-    box-shadow: 0 7px 14px 1px rgba(50,50,93,0.10), 0 3px 6px 1px rgba(0,0,0,0.07);
+    box-shadow: 0 7px 14px 1px rgba(50,50,93,0.10), 0 3px 6px 1px rgba($black, 0.07);
 
     &::before {
       transform: translateX(-50%);
@@ -386,7 +594,6 @@ main {
 
   &::after {
     transform: rotate(90deg);
-    // transition: all .8s cubic-bezier(.2, 1, .25, 1);
   }
 
   &::before {
@@ -407,11 +614,6 @@ main {
     box-shadow: none;
     color: $space-cadet;
 
-    // &::before {
-    //   width: calc(100% - 69px);
-    //   transform: translateY(-4px);
-    // }
-
     &::before {
       width: 100%;
       transform: translateX(-17px);
@@ -423,7 +625,6 @@ main {
 
     &::after {
       animation: buttonArrowDown .8s cubic-bezier(.2, 1, .25, 1);
-      // transform: rotate(180deg);
       background-color: $space-cadet;
     }
   }
@@ -448,5 +649,124 @@ main {
   100% {
     transform: translateY(0) rotate(90deg);
     opacity: 1;
+  }
+}
+
+.ityped-cursor {
+  font-size: 1em;
+  font-weight: 100;
+  opacity: 1;
+  animation: blink 0.5s infinite;
+  animation-direction: alternate;
+}
+
+@keyframes blink {
+  100% {
+    opacity: 0;
+  }
+}
+
+.revealLeft {
+  animation: revealLeft 1.6s cubic-bezier(.2, 1, .25, 1) both;
+  animation-delay: .1s;
+}
+
+@keyframes revealLeft {
+  from {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  }
+
+  to {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+.revealCardLeft {
+  &::before {
+    animation: revealCardLeft 1.6s cubic-bezier(.2, 1, .25, 1) both;
+    animation-delay: .86s;
+  }
+
+  &::after {
+    animation: revealCardLeft 1.6s cubic-bezier(.2, 1, .25, 1) both;
+    animation-delay: .1s;
+  }
+
+  h4 {
+    animation: cardDown 1.6s cubic-bezier(.2, 1, .25, 1) both;
+    animation-delay: .6s;
+  }
+
+  h1 {
+    animation: cardDown 1.6s cubic-bezier(.2, 1, .25, 1) both;
+    animation-delay: .75s;
+  }
+
+  .button {
+    animation: cardDown 1.6s cubic-bezier(.2, 1, .25, 1) both;
+    animation-delay: .9s;
+  }
+}
+
+@keyframes revealCardLeft {
+  from {
+    transform: translateX(-16px);
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  }
+
+  to {
+    transform: translateX(0);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+.revealCardRight {
+  &::before {
+    animation: revealCardRight 1.6s cubic-bezier(.2, 1, .25, 1) both;
+    animation-delay: .86s;
+  }
+
+  &::after {
+    animation: revealCardRight 1.6s cubic-bezier(.2, 1, .25, 1) both;
+    animation-delay: .1s;
+  }
+
+  h4 {
+    animation: cardDown 1.6s cubic-bezier(.2, 1, .25, 1) both;
+    animation-delay: .6s;
+  }
+
+  h1 {
+    animation: cardDown 1.6s cubic-bezier(.2, 1, .25, 1) both;
+    animation-delay: .75s;
+  }
+
+  .button {
+    animation: cardDown 1.6s cubic-bezier(.2, 1, .25, 1) both;
+    animation-delay: .9s;
+  }
+}
+
+@keyframes revealCardRight {
+  from {
+    transform: translateX(16px);
+    clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+  }
+
+  to {
+    transform: translateX(0);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+@keyframes cardDown {
+  from {
+    opacity: 0;
+    transform: translateY(64px) scale(.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }

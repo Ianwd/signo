@@ -4,7 +4,7 @@
   <head>
     @@include('./templates/head.html', {
       "page-title": "About – signo",
-      "page-desc": "desc",
+      "page-desc": "Discover what and who is behind the signo project.",
       "og-url": "/about"
     })
   </head>
@@ -14,9 +14,51 @@
       "active-dev": "",
       "active-tools": "",
       "active-learn": "",
-      "search": true,
-      "header-theme": ""
+      "search": false,
+      "header-theme": "header--light"
     })
+
+    <main>
+      <header class="pageHead pageHead--category pageHead--about">
+        <div class="container">
+          <div class="pageHead__content">
+            <h1>
+              Crafted in Belgium with<b>&nbsp;<br /><span>love ❤️</span></b>.
+            </h1>
+          </div>
+        </div>
+      </header>
+      <section class="card card--halfPic card--halfPic--about">
+        <div class="container">
+          <div class="wrapper">
+            <h3>The origin of signo</h3>
+            <p>
+              Born out of a lack of information or clarity in the field of screen accessibility, signo has been developed in a month.
+            </p>
+            <p>
+              signo encloses information which was gathered among many publications, such as W3C, WebAIM, Medium, Orange, Microsoft, Material.io, etc. This knowledge was rewritten in order to be easily understandable, and served in a way which aims to be widely spread.
+            </p>
+          </div>
+          <div class="img"></div>
+        </div>
+      </section>
+      <section class="card card--white card--fromRight">
+        <div class="container">
+          <h3>Who's behind signo?</h3>
+          <p>
+            The signo initiative was brought to life by <b><a href="https://mathieudelvaux.be" target="_blank">Mathieu Delvaux</a></b>, a <a href="http://dwm.re" target="_blank">DWM</a> student, as part of his final project.
+          </p>
+          <p>
+            Mathieu is a multidisciplinary designer from Belgium and currently studying in his final year at Albert Jacquard College.<br />
+            He is also the <b>Co-Founder &amp; Creative UX Manager</b> of <a href="https://nextmoov.be" target="_blank">nextmoov</a>, the <b>Co-Founder &amp; Product Design Manager</b> of <a href="https://nextmoov.be" target="_blank">NextRide</a> and a former design intern at <a href="http://epic.net" target="_blank">EPIC Agency</a>.
+          </p>
+          <div class="partners">
+            <div class="partner partner--heaj"></div>
+            <div class="partner partner--dwm"></div>
+          </div>
+        </div>
+      </section>
+    </main>
 
     @@include('./templates/footer.html')
 

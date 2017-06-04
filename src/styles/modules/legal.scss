@@ -1,8 +1,12 @@
 .legal {
 
   .container {
-    padding: 186px 130px 120px;
+    padding: 186px 32px 120px;
     background-color: $white;
+
+    @include break(s) {
+      padding: 186px 130px 120px;
+    }
   }
 }
 

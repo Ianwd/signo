@@ -1,0 +1,50 @@
+<!-- /404 -->
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    @@include('./templates/head.html', {
+      "page-title": "404 – signo",
+      "page-desc": "This page doesn't exist.",
+      "og-url": "/404"
+    })
+  </head>
+  <body>
+    @@include('./templates/header.html', {
+      "active-design": "",
+      "active-dev": "",
+      "active-tools": "",
+      "active-learn": "",
+      "search": false,
+      "header-theme": "header--light"
+    })
+
+    <main class="_404">
+      <div class="container">
+        <h1>
+          Don't lose yourself…
+        </h1>
+        <p>
+          Well… We're all humans here: we all make mistakes. But we got you covered: have a search 🔍<br />
+          You could also help us and <a href="https://github.com/mathieudelvaux/signo/issues/new" target="_blank">report this error</a>.
+        </p>
+        <form class="pageHead__form js-search">
+          <div class="pageHead__search js-container">
+            <svg aria-hidden="true" width="18" height="18"><path fill="#0a2850" d="M14.95 13.47a8.35 8.35 0 1 0-1.48 1.48l2.75 2.75a1 1 0 0 0 1.48-1.48zm-6.6 1.14a6.26 6.26 0 1 1 6.26-6.26 6.26 6.26 0 0 1-6.26 6.26z"/></svg>
+            <input class="pageHead__input js-input" type="text" placeholder="What were you looking for?" autocorrect="off" autocomplete="off" spellcheck="false" name="search" >
+            <button class="search__cancelButton js-searchCancel" type="button" aria-label="Clear Search"></button>
+          </div>
+          <ol class="pageHead__searchResult search__result js-searchHidden">
+
+          </ol>
+        </form>
+      </div>
+    </main>
+
+    @@include('./templates/footer.html')
+
+    <script src="@@webRoot/assets/js/main.js"></script>
+    @@if (context.build === "dev") {
+      @@include('./templates/_dev-scripts.html')
+    }
+  </body>
+</html>

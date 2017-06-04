@@ -1,6 +1,7 @@
 import * as Colors from './utils/color.const';
 import tinycolor from 'tinycolor2';
 import debounce from 'lodash/debounce';
+import clipboard from 'clipboard-js';
 
 const wait = (time) => new Promise((resolve) => setTimeout(resolve, time));
 const startBtn = document.querySelector('.js-start');
@@ -24,6 +25,8 @@ const step3 = document.querySelector('.js-thirdStep');
 const validLarge = document.querySelector('.js-validationLargeText');
 const validSmall = document.querySelector('.js-validationSmallText');
 const renew = document.querySelector('.js-renew');
+const copyBtns = document.querySelectorAll('.js-copy');
+const formatBtns = document.querySelectorAll('.js-format');
 
 if (JSON.parse(sessionStorage.getItem('io.signo.contrastVisited')) === true) {
   skipIntro();
@@ -39,42 +42,66 @@ Array.from(switchBtn).forEach((el) => {
 });
 foregroundInputLanding.addEventListener('keyup', (e) => {
   e.preventDefault();
+  if (foregroundInputLanding.value.length > 0) {
+    foregroundInputLanding.classList.remove('fieldError');
+  }
   if (e.keyCode === 13) {
     const fg = foregroundInputLanding.value;
     const bg = backgroundInputLanding.value;
 
-    foregroundInput.value = fg;
-    backgroundInput.value = bg;
+    if (foregroundInputLanding.value.length === 0) {
+      foregroundInputLanding.classList.add('fieldError');
+    } else if (backgroundInputLanding.value.length === 0) {
+      backgroundInputLanding.classList.add('fieldError');
+    } else {
+      foregroundInput.value = fg;
+      backgroundInput.value = bg;
 
-    proceedStepThree();
-    validateInput(fg, bg);
-    sessionStorage.setItem('io.signo.contrastVisited', 'true');
+      proceedStepThree();
+      validateInput(fg, bg);
+      sessionStorage.setItem('io.signo.contrastVisited', 'true');
+    }
   }
 });
 backgroundInputLanding.addEventListener('keyup', (e) => {
   e.preventDefault();
+  if (backgroundInputLanding.value.length > 0) {
+    backgroundInputLanding.classList.remove('fieldError');
+  }
   if (e.keyCode === 13) {
     const fg = foregroundInputLanding.value;
     const bg = backgroundInputLanding.value;
 
-    foregroundInput.value = fg;
-    backgroundInput.value = bg;
+    if (foregroundInputLanding.value.length === 0) {
+      foregroundInputLanding.classList.add('fieldError');
+    } else if (backgroundInputLanding.value.length === 0) {
+      backgroundInputLanding.classList.add('fieldError');
+    } else {
+      foregroundInput.value = fg;
+      backgroundInput.value = bg;
 
-    proceedStepThree();
-    validateInput(fg, bg);
-    sessionStorage.setItem('io.signo.contrastVisited', 'true');
+      proceedStepThree();
+      validateInput(fg, bg);
+      sessionStorage.setItem('io.signo.contrastVisited', 'true');
+    }
   }
 });
 generateBtn.addEventListener('click', () => {
   const fg = foregroundInputLanding.value;
   const bg = backgroundInputLanding.value;
 
-  foregroundInput.value = fg;
-  backgroundInput.value = bg;
+  if (foregroundInputLanding.value.length === 0) {
+    foregroundInputLanding.classList.add('fieldError');
+  } else if (backgroundInputLanding.value.length === 0) {
+    backgroundInputLanding.classList.add('fieldError');
+  } else {
+    foregroundInput.value = fg;
+    backgroundInput.value = bg;
 
-  proceedStepThree();
-  validateInput(fg, bg);
-  sessionStorage.setItem('io.signo.contrastVisited', 'true');
+    proceedStepThree();
+    validateInput(fg, bg);
+    sessionStorage.setItem('io.signo.contrastVisited', 'true');
+  }
 });
 Array.from(fieldset).forEach((el) => {
   el.addEventListener('click', () => {
@@ -109,6 +136,30 @@ renew.addEventListener('click', () => {
   renew.classList.add('rotate');
   generatePalette();
   wait(800).then(() => renew.classList.remove('rotate'));
+});
+Array.from(copyBtns).forEach((el) => {
+  el.addEventListener('click', (ev) => {
+    ev.stopPropagation();
+    const parent = el.parentNode.parentNode;
+    const clip = parent.querySelector('.hue__clipboard');
+    const ref = parent.querySelector('.hue__ref');
+
+    if (!clip.classList.contains('on')) {
+      clip.classList.add('on');
+      ref.classList.add('on');
+      wait(800).then(() => {
+        clip.classList.remove('on');
+        ref.classList.remove('on');
+      });
+    }
+    clipboard.copy(ref.innerText);
+  });
+});
+Array.from(formatBtns).forEach((el) => {
+  el.addEventListener('click', (ev) => {
+    ev.stopPropagation();
+    switchFormat(el.parentNode.parentNode);
+  });
 });
 
 /**
@@ -352,10 +403,20 @@ function generatePalette() {
   for (let i = 0; i < hue.length; i++) {
     hue[i].style.backgroundColor = colors[i].color;
     hue[i].dataset.ratio = colors[i].ratio;
+    hue[i].querySelector('span').innerHTML = tinycolor(colors[i].color).toHexString();
+    if (tinycolor(colors[i].color).isLight()) {
+      hue[i].classList.add('light');
+    }
+  }
+
+  if (tinycolor(baseColor).isLight()) {
+    mainHue.classList.add('light');
+  } else {
+    mainHue.classList.remove('light');
   }
 }
 
-function generateColor(color) {
+function generateColor(color, force) {
   const originColor = tinycolor(color).toRgb();
   const generated = tinycolor.random().toRgb();
   // This is another way of generating a color while
@@ -370,13 +431,30 @@ function generateColor(color) {
   const foreground = foregroundInput.value;
   const ratio = contrast(foreground, tinycolor(mix).toRgbString());
 
-  if (ratio < 7) {
-    return generateColor(tinycolor(originColor).toRgbString());
+  if (force === 1) {
+    if (ratio < 7) {
+      return generateColor(tinycolor(generated).toRgbString(), 1);
+    } else {
+      return {
+        color: tinycolor(generated).toHslString(),
+        ratio: ratio,
+      };
+    }
   } else {
-    return {
-      color: tinycolor(mix).toHslString(),
-      ratio: ratio,
-    };
+    if (ratio <= 1.6) {
+      // return {
+      //   color: tinycolor(generated).toHslString(),
+      //   ratio: contrast(foreground, tinycolor(generated).toRgbString()),
+      // };
+      return generateColor(tinycolor(originColor).toRgbString(), 1);
+    } else if (ratio < 7) {
+      return generateColor(tinycolor(originColor).toRgbString());
+    } else {
+      return {
+        color: tinycolor(mix).toHslString(),
+        ratio: ratio,
+      };
+    }
   }
 }
 
@@ -389,4 +467,19 @@ function applyColor(color, ratioVal) {
   }
 
   ratio.innerHTML = ratioVal;
+}
+
+function switchFormat(el) {
+  const node = el.querySelector('.hue__ref');
+  const color = node.innerText;
+
+  if (color.includes('#')) {
+    node.innerHTML = tinycolor(color).toRgbString();
+  }
+  if (color.includes('rgb')) {
+    node.innerHTML = tinycolor(color).toHslString();
+  }
+  if (color.includes('hsl')) {
+    node.innerHTML = tinycolor(color).toHexString();
+  }
 }

@@ -1,9 +1,9 @@
 import debounce from 'lodash/debounce';
 import request from 'superagent';
 
-const container = document.querySelector('.js-search');
-// const input = container.querySelector('input');
-const input = document.querySelector('.js-search > input');
+const form = document.querySelector('.js-search');
+const container = document.querySelector('.js-container');
+const input = document.querySelector('.js-input');
 const clear = document.querySelector('.js-searchCancel');
 
 /**
@@ -16,6 +16,7 @@ export function init() {
   if (container) {
     container.addEventListener('click', () => {
       input.focus();
+      container.classList.add('active');
       if (input.value.length > 0) {
         showClear();
         showResults();
@@ -27,6 +28,9 @@ export function init() {
       if (!clickInside && !document.querySelector('.search__result').classList.contains('js-searchHidden')) {
         hideResults();
         hideClear();
+        container.classList.remove('active');
+      } else if (!clickInside) {
+        container.classList.remove('active');
       }
     });
   }
@@ -47,7 +51,27 @@ export function init() {
         clearInput();
         hideResults();
         hideClear();
+        container.classList.remove('active');
         ev.preventDefault();
+      }
+      if (ev.keyCode === 13) {
+        ev.preventDefault();
+
+        return false;
+      }
+    });
+    form.addEventListener('keydown', (ev) => {
+      const items = document.querySelectorAll('.search__item');
+
+      if (items.length > 0 && input.value.length > 2) {
+        if (ev.keyCode === 40) {
+          focusList(ev, 'down');
+          ev.preventDefault();
+        }
+        if (ev.keyCode === 38) {
+          focusList(ev, 'up');
+          ev.preventDefault();
+        }
       }
     });
   }
@@ -88,9 +112,10 @@ function hideClear() {
  * @return {undefined}
  */
 function searchRequest() {
-  if (input.value.length > 0) {
+  showClear();
+  if (input.value.length > 2) {
     request.
-      get('/search/index.json').
+      get(`/search/${input.value}`).
       accept('application/json').
       retry().
       end((err, res) => {
@@ -100,6 +125,8 @@ function searchRequest() {
           searchResults(res);
         }
       });
+  } else {
+    hideResults();
   }
 }
 
@@ -109,7 +136,35 @@ function searchRequest() {
  * @return {undefined}
  */
 function searchResults(response) {
-  console.log(response.body);
+  const result = response.body;
+  const list = document.querySelector('.search__result');
+
+  list.innerHTML = '';
+
+  if (result.length > 0) {
+    for (let i = 0; i < result.length; i++) {
+      const source = result[i]._source;
+      const markup = `
+      <li class="search__item search__item--${source.category}">
+        <a href="${source.link}" aria-label="Learn more about ${source.title} in the ${source.category} category">
+          ${source.title}
+          <span class="search__tag">${source.category}</span>
+        </a>
+      </li>`;
+
+      list.innerHTML += markup;
+    }
+  } else {
+    const markup = `
+    <li class="search__item">
+      <a>
+        We tried hard, but couldn't find anything 😞
+      </a>
+    </li>`;
+
+    list.innerHTML = markup;
+  }
+
   showResults();
 }
 
@@ -136,4 +191,39 @@ function hideResults() {
  */
 function showResults() {
   document.querySelector('.search__result').classList.remove('js-searchHidden');
+}
+
+function focusList(ev, direction) {
+  if (ev.target.className.includes('js-input')) {
+    if (direction === 'down') {
+      const rsltList = document.querySelector('.search__result');
+
+      rsltList.querySelector('a').focus();
+    } else {
+      const results = document.querySelectorAll('.search__item');
+      const last = results[results.length - 1];
+
+      last.querySelector('a').focus();
+    }
+  } else if (ev.target.localName === 'a') {
+    const parent = ev.target.parentNode;
+
+    if (direction === 'down') {
+      const next = parent.nextElementSibling;
+
+      if (next === null) {
+        input.focus();
+      } else {
+        next.querySelector('a').focus();
+      }
+    } else {
+      const prev = parent.previousElementSibling;
+
+      if (prev === null) {
+        input.focus();
+      } else {
+        prev.querySelector('a').focus();
+      }
+    }
+  }
 }

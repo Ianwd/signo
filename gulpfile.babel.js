@@ -11,7 +11,8 @@ import sitemap from 'gulp-sitemap';
 import util from 'gulp-util';
 import concat from 'gulp-concat';
 import uglify from 'gulp-uglify';
-import webpack from 'webpack-stream';
+import webpack from 'webpack';
+import webpackStream from 'webpack-stream';
 import copyWebpack from 'copy-webpack-plugin';
 import through from 'through2';
 import imagemin from 'gulp-imagemin';
@@ -67,7 +68,7 @@ gulp.task('img', () =>
 );
 
 gulp.task('sass', () => {
-  return gulp.src(['./src/styles/main.scss', './src/styles/tfe.scss'])
+  return gulp.src(['./src/styles/main.scss', './src/styles/tfe.scss', './src/styles/vendor/grid.scss'])
     .pipe(util.env.type === 'dev' ? sourcemaps.init() : util.noop())
     .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
     // Default: nested. Values: nested, expanded, compact, compressed
@@ -112,7 +113,7 @@ gulp.task('js', () => {
       './src/js/main.js',
       './src/js/color.js'
   ])
-  .pipe(webpack({
+  .pipe(webpackStream({
     devtool: 'source-map',
     entry: {
       main: './src/js/main.js',
@@ -146,6 +147,11 @@ gulp.task('js', () => {
   .pipe(gulp.dest('./build/assets/js'))
 });
 
+gulp.task('favicon', () =>
+  gulp.src('./src/favicon/*')
+    .pipe(gulp.dest('./build/assets/favicon'))
+);
+
 gulp.task('sitemap', () => {
   gulp.src('./build/**/*.html', {
     read: false,
@@ -163,6 +169,6 @@ gulp.task('watch', () => {
   gulp.watch('./src/js/**/*.js', ['js']);
 });
 
-gulp.task('dev', ['html', 'fonts', 'img', 'sass', 'js', 'watch']);
-gulp.task('build', ['html', 'fonts', 'img', 'sass', 'js', 'sitemap']);
+gulp.task('dev', ['html', 'fonts', 'img', 'sass', 'js', 'favicon', 'watch']);
+gulp.task('build', ['html', 'fonts', 'img', 'sass', 'js', 'favicon', 'sitemap']);
 gulp.task('default', ['dev']);

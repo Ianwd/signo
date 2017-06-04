@@ -1,0 +1,266 @@
+[
+  {
+    "id": "a4114767-db81-4dbf-b246-afbb89019420",
+    "title": "Contribute",
+    "description": "desc",
+    "link": "https://signo.mathieudelvaux.be/contribute",
+    "category": "contribute",
+    "keywords": [
+      "contribute"
+    ],
+    "content": ""
+  },
+  {
+    "id": "b4739089-c7bb-4f1b-8f1a-8c27f8e958d9",
+    "title": "Colors",
+    "description": "desc",
+    "link": "https://signo.mathieudelvaux.be/design/colors",
+    "category": "design",
+    "keywords": [
+      "design",
+      "colors"
+    ],
+    "content": "Last updated April 19, 2017 April 19, 2017 Colors Contrast ratio Color and contrast are key elements for users to correctly see and read your content. Making sure your color palette contrast is sufficient is the first step to make sure interactive elements are visible and your content is usable. This will also be profitable to users using your project in a very bright environment. Keep in mind this section is currently under writing. Visual examples are missing as well. W3C recommendations Color contrast is determined on a 21 ratio scale by the intensity of light emitted by a color and its background. This contrast is usually written as 1:1, up to 21:1. The higher the difference between the two numbers, the higher the contrast is. The World Wide Web Consortium recommends a minimum of: 4.5:1 ratio for small text against its background; at least a 3:1 ratio for larger text (14pt bold or 18pt regular). 4.5:1 ratio for small text against its background; at least a 3:1 ratio for larger text (14pt bold or 18pt regular). Color blindness There are multiple types of color blindness but it all comes down to not seeing color clearly, getting colors mixed up, or not being able to differentiate certain colors. In a group of eight men and eight women on your team, there’s a 50% chance that at least one teammate is color-blind. While there are several different types of color blindness, all individuals who are color-blind rely on cues like shapes or semantics in situations where they could otherwise rely on clearly differentiated colors, like when waiting for a traffic light to turn “green”. You should not rely solely on colors to give information, for buttons or even color selection. Labeling elements is a key element to accessibility. Sensory information This section only contains different code tags demonstration. var s = \"JavaScript syntax highlighting\"; alert(s); var s = \"JavaScript syntax highlighting\"; alert(s); <article>Some code</article> <article>Some code</article> $variable: \"string\"; body { content: $variable; } $variable: \"string\"; body { content: $variable; } 1 2 3 1 2 3"
+  },
+  {
+    "id": "ffad904b-d383-4459-9e50-742cea614acd",
+    "title": "Focus",
+    "description": "desc",
+    "link": "https://signo.mathieudelvaux.be/design/focus",
+    "category": "design",
+    "keywords": [
+      "design",
+      "focus"
+    ],
+    "content": "Last updated April 19, 2017 April 19, 2017"
+  },
+  {
+    "id": "4f74075b-c73f-4d80-9ce4-64c9477c6df3",
+    "title": "Design",
+    "description": "desc",
+    "link": "https://signo.mathieudelvaux.be/design",
+    "category": "design",
+    "keywords": [
+      "design"
+    ],
+    "content": "Physicists and philosophers seem to like nothing more than telling us that everything we thought about the world is wrong. They take a peculiar pleasure in exposing common sense as nonsense. But Tim Maudlin thinks our direct impressions of the world are a better guide to reality than we have been led to believe. Not that he thinks they always are. Maudlin, who is a professor at New York University and one of the world’s leading philosophers of physics, made his name studying the strange behavior of “entangled” quantum particles, which display behavior that is as counterintuitive as can be; if anything, he thinks physicists have downplayed how transformative entanglement is. At the same time, though, he thinks physicists can be too hasty to claim that our conventional views are misguided, especially when it comes to the nature of time. Test He defends a homey and unfashionable view of time. It has a built-in arrow. It is fundamental rather than derived from some deeper reality. Change is real, as opposed to an illusion or an artifact of perspective. The laws of physics act within time to generate each moment. Mixing mathematics, physics and philosophy, Maudlin bats away the reasons that scientists and philosophers commonly give for denying this folk wisdom. Not that he thinks they always are. Maudlin, who is a professor at New York University and one of the world’s leading philosophers of physics, made his name studying the strange behavior of “entangled” quantum particles, which display behavior that is as counterintuitive as can be; if anything, he thinks physicists have downplayed how transformative entanglement is. At the same time, though, he thinks physicists can be too hasty to claim that our conventional views are misguided, especially when it comes to the nature of time. Test He defends a homey and unfashionable view of time. It has a built-in arrow. It is fundamental rather than derived from some deeper reality. Change is real, as opposed to an illusion or an artifact of perspective. The laws of physics act within time to generate each moment. Mixing mathematics, physics and philosophy, Maudlin bats away the reasons that scientists and philosophers commonly give for denying this folk wisdom. Not that he thinks they always are. Maudlin, who is a professor at New York University and one of the world’s leading philosophers of physics, made his name studying the strange behavior of “entangled” quantum particles, which display behavior that is as counterintuitive as can be; if anything, he thinks physicists have downplayed how transformative entanglement is. At the same time, though, he thinks physicists can be too hasty to claim that our conventional views are misguided, especially when it comes to the nature of time. He defends a homey and unfashionable view of time. It has a built-in arrow. It is fundamental rather than derived from some deeper reality. Change is real, as opposed to an illusion or an artifact of perspective. The laws of physics act within time to generate each moment. Mixing mathematics, physics and philosophy, Maudlin bats away the reasons that scientists and philosophers commonly give for denying this folk wisdom. Not that he thinks they always are. Maudlin, who is a professor at New York University and one of the world’s leading philosophers of physics, made his name studying the strange behavior of “entangled” quantum particles, which display behavior that is as counterintuitive as can be; if anything, he thinks physicists have downplayed how transformative entanglement is. At the same time, though, he thinks physicists can be too hasty to claim that our conventional views are misguided, especially when it comes to the nature of time."
+  },
+  {
+    "id": "b748982d-559f-4c80-8163-4f1b41f13b5b",
+    "title": "Motion",
+    "description": "desc",
+    "link": "https://signo.mathieudelvaux.be/design/motion",
+    "category": "design",
+    "keywords": [
+      "design",
+      "motion"
+    ],
+    "content": "Last updated April 19, 2017 April 19, 2017"
+  },
+  {
+    "id": "d39252ee-6734-4857-bbef-7581fd9cc7d6",
+    "title": "Writing",
+    "description": "desc",
+    "link": "https://signo.mathieudelvaux.be/design/writing",
+    "category": "design",
+    "keywords": [
+      "design",
+      "writing"
+    ],
+    "content": "Last updated April 19, 2017 April 19, 2017"
+  },
+  {
+    "id": "5b60af94-e2d5-46cb-8e6e-199417fed6b2",
+    "title": "Codex",
+    "description": "desc",
+    "link": "https://signo.mathieudelvaux.be/develop/codex",
+    "category": "develop",
+    "keywords": [
+      "develop",
+      "codex"
+    ],
+    "content": ""
+  },
+  {
+    "id": "369721c2-378e-4c02-ae90-99aee792f290",
+    "title": "Develop",
+    "description": "desc",
+    "link": "https://signo.mathieudelvaux.be/develop",
+    "category": "develop",
+    "keywords": [
+      "develop"
+    ],
+    "content": "Physicists and philosophers seem to like nothing more than telling us that everything we thought about the world is wrong. They take a peculiar pleasure in exposing common sense as nonsense. But Tim Maudlin thinks our direct impressions of the world are a better guide to reality than we have been led to believe. Not that he thinks they always are. Maudlin, who is a professor at New York University and one of the world’s leading philosophers of physics, made his name studying the strange behavior of “entangled” quantum particles, which display behavior that is as counterintuitive as can be; if anything, he thinks physicists have downplayed how transformative entanglement is. At the same time, though, he thinks physicists can be too hasty to claim that our conventional views are misguided, especially when it comes to the nature of time. Test He defends a homey and unfashionable view of time. It has a built-in arrow. It is fundamental rather than derived from some deeper reality. Change is real, as opposed to an illusion or an artifact of perspective. The laws of physics act within time to generate each moment. Mixing mathematics, physics and philosophy, Maudlin bats away the reasons that scientists and philosophers commonly give for denying this folk wisdom. Not that he thinks they always are. Maudlin, who is a professor at New York University and one of the world’s leading philosophers of physics, made his name studying the strange behavior of “entangled” quantum particles, which display behavior that is as counterintuitive as can be; if anything, he thinks physicists have downplayed how transformative entanglement is. At the same time, though, he thinks physicists can be too hasty to claim that our conventional views are misguided, especially when it comes to the nature of time. Test He defends a homey and unfashionable view of time. It has a built-in arrow. It is fundamental rather than derived from some deeper reality. Change is real, as opposed to an illusion or an artifact of perspective. The laws of physics act within time to generate each moment. Mixing mathematics, physics and philosophy, Maudlin bats away the reasons that scientists and philosophers commonly give for denying this folk wisdom. Not that he thinks they always are. Maudlin, who is a professor at New York University and one of the world’s leading philosophers of physics, made his name studying the strange behavior of “entangled” quantum particles, which display behavior that is as counterintuitive as can be; if anything, he thinks physicists have downplayed how transformative entanglement is. At the same time, though, he thinks physicists can be too hasty to claim that our conventional views are misguided, especially when it comes to the nature of time. He defends a homey and unfashionable view of time. It has a built-in arrow. It is fundamental rather than derived from some deeper reality. Change is real, as opposed to an illusion or an artifact of perspective. The laws of physics act within time to generate each moment. Mixing mathematics, physics and philosophy, Maudlin bats away the reasons that scientists and philosophers commonly give for denying this folk wisdom. Not that he thinks they always are. Maudlin, who is a professor at New York University and one of the world’s leading philosophers of physics, made his name studying the strange behavior of “entangled” quantum particles, which display behavior that is as counterintuitive as can be; if anything, he thinks physicists have downplayed how transformative entanglement is. At the same time, though, he thinks physicists can be too hasty to claim that our conventional views are misguided, especially when it comes to the nature of time."
+  },
+  {
+    "id": "4b6662b1-e0e1-44df-9ac7-84e683cc5df8",
+    "title": "Mobile – Develop",
+    "description": "desc",
+    "link": "https://signo.mathieudelvaux.be/develop/mobile",
+    "category": "develop",
+    "keywords": [
+      "develop",
+      "mobile"
+    ],
+    "content": ""
+  },
+  {
+    "id": "59557c1a-eff4-424e-bf53-e5e5a900a29e",
+    "title": "Aria – Web",
+    "description": "desc",
+    "link": "https://signo.mathieudelvaux.be/develop/web/aria",
+    "category": "develop",
+    "keywords": [
+      "develop",
+      "web",
+      "aria"
+    ],
+    "content": "Last updated April 19, 2017 April 19, 2017"
+  },
+  {
+    "id": "86d92ea4-f962-4a2d-b34c-f8511e068d81",
+    "title": "Forms – Web",
+    "description": "desc",
+    "link": "https://signo.mathieudelvaux.be/develop/web/forms",
+    "category": "develop",
+    "keywords": [
+      "develop",
+      "web",
+      "forms"
+    ],
+    "content": "Last updated April 19, 2017 April 19, 2017"
+  },
+  {
+    "id": "dec87abb-99b5-4d99-bb9d-b125f5a24efd",
+    "title": "Web – Develop",
+    "description": "desc",
+    "link": "https://signo.mathieudelvaux.be/develop/web",
+    "category": "develop",
+    "keywords": [
+      "develop",
+      "web"
+    ],
+    "content": ""
+  },
+  {
+    "id": "525f3406-4235-447f-bd4d-013701145a05",
+    "title": "Navigation – Web",
+    "description": "desc",
+    "link": "https://signo.mathieudelvaux.be/develop/web/navigation",
+    "category": "develop",
+    "keywords": [
+      "develop",
+      "web",
+      "navigation"
+    ],
+    "content": "Last updated April 19, 2017 April 19, 2017"
+  },
+  {
+    "id": "8fab8c18-f3a0-4bd5-ab9f-fa359974191b",
+    "title": "Screen Readers – Web",
+    "description": "desc",
+    "link": "https://signo.mathieudelvaux.be/develop/web/screenreaders",
+    "category": "develop",
+    "keywords": [
+      "develop",
+      "web",
+      "screenreaders"
+    ],
+    "content": "Last updated April 19, 2017 April 19, 2017"
+  },
+  {
+    "id": "7304a747-9599-490f-9b8d-8e1c86b694f8",
+    "title": "Semantic – Web",
+    "description": "desc",
+    "link": "https://signo.mathieudelvaux.be/develop/web/semantic",
+    "category": "develop",
+    "keywords": [
+      "develop",
+      "web",
+      "semantic"
+    ],
+    "content": "Last updated April 19, 2017 April 19, 2017"
+  },
+  {
+    "id": "2045f5cf-a09e-4678-9ac1-d54cc77ea6e8",
+    "title": "Impairments",
+    "description": "desc",
+    "link": "https://signo.mathieudelvaux.be/learn/impairments",
+    "category": "learn",
+    "keywords": [
+      "learn",
+      "impairments"
+    ],
+    "content": "Physicists and philosophers seem to like nothing more than telling us that everything we thought about the world is wrong. They take a peculiar pleasure in exposing common sense as nonsense. But Tim Maudlin thinks our direct impressions of the world are a better guide to reality than we have been led to believe. Not that he thinks they always are. Maudlin, who is a professor at New York University and one of the world’s leading philosophers of physics, made his name studying the strange behavior of “entangled” quantum particles, which display behavior that is as counterintuitive as can be; if anything, he thinks physicists have downplayed how transformative entanglement is. At the same time, though, he thinks physicists can be too hasty to claim that our conventional views are misguided, especially when it comes to the nature of time. He defends a homey and unfashionable view of time. It has a built-in arrow. It is fundamental rather than derived from some deeper reality. Change is real, as opposed to an illusion or an artifact of perspective. The laws of physics act within time to generate each moment. Mixing mathematics, physics and philosophy, Maudlin bats away the reasons that scientists and philosophers commonly give for denying this folk wisdom."
+  },
+  {
+    "id": "ce69a3c1-8036-417f-acae-12a5e01b0c83",
+    "title": "Learn",
+    "description": "desc",
+    "link": "https://signo.mathieudelvaux.be/learn",
+    "category": "learn",
+    "keywords": [
+      "learn"
+    ],
+    "content": "Physicists and philosophers seem to like nothing more than telling us that everything we thought about the world is wrong. They take a peculiar pleasure in exposing common sense as nonsense. But Tim Maudlin thinks our direct impressions of the world are a better guide to reality than we have been led to believe. Not that he thinks they always are. Maudlin, who is a professor at New York University and one of the world’s leading philosophers of physics, made his name studying the strange behavior of “entangled” quantum particles, which display behavior that is as counterintuitive as can be; if anything, he thinks physicists have downplayed how transformative entanglement is. At the same time, though, he thinks physicists can be too hasty to claim that our conventional views are misguided, especially when it comes to the nature of time. Test He defends a homey and unfashionable view of time. It has a built-in arrow. It is fundamental rather than derived from some deeper reality. Change is real, as opposed to an illusion or an artifact of perspective. The laws of physics act within time to generate each moment. Mixing mathematics, physics and philosophy, Maudlin bats away the reasons that scientists and philosophers commonly give for denying this folk wisdom. Not that he thinks they always are. Maudlin, who is a professor at New York University and one of the world’s leading philosophers of physics, made his name studying the strange behavior of “entangled” quantum particles, which display behavior that is as counterintuitive as can be; if anything, he thinks physicists have downplayed how transformative entanglement is. At the same time, though, he thinks physicists can be too hasty to claim that our conventional views are misguided, especially when it comes to the nature of time. Test He defends a homey and unfashionable view of time. It has a built-in arrow. It is fundamental rather than derived from some deeper reality. Change is real, as opposed to an illusion or an artifact of perspective. The laws of physics act within time to generate each moment. Mixing mathematics, physics and philosophy, Maudlin bats away the reasons that scientists and philosophers commonly give for denying this folk wisdom. Not that he thinks they always are. Maudlin, who is a professor at New York University and one of the world’s leading philosophers of physics, made his name studying the strange behavior of “entangled” quantum particles, which display behavior that is as counterintuitive as can be; if anything, he thinks physicists have downplayed how transformative entanglement is. At the same time, though, he thinks physicists can be too hasty to claim that our conventional views are misguided, especially when it comes to the nature of time. He defends a homey and unfashionable view of time. It has a built-in arrow. It is fundamental rather than derived from some deeper reality. Change is real, as opposed to an illusion or an artifact of perspective. The laws of physics act within time to generate each moment. Mixing mathematics, physics and philosophy, Maudlin bats away the reasons that scientists and philosophers commonly give for denying this folk wisdom. Not that he thinks they always are. Maudlin, who is a professor at New York University and one of the world’s leading philosophers of physics, made his name studying the strange behavior of “entangled” quantum particles, which display behavior that is as counterintuitive as can be; if anything, he thinks physicists have downplayed how transformative entanglement is. At the same time, though, he thinks physicists can be too hasty to claim that our conventional views are misguided, especially when it comes to the nature of time."
+  },
+  {
+    "id": "a79d1055-b1cf-47ae-9ec7-c27ebcd5ef4e",
+    "title": "Laws",
+    "description": "desc",
+    "link": "https://signo.mathieudelvaux.be/learn/laws",
+    "category": "learn",
+    "keywords": [
+      "learn",
+      "laws"
+    ],
+    "content": "Physicists and philosophers seem to like nothing more than telling us that everything we thought about the world is wrong. They take a peculiar pleasure in exposing common sense as nonsense. But Tim Maudlin thinks our direct impressions of the world are a better guide to reality than we have been led to believe. Not that he thinks they always are. Maudlin, who is a professor at New York University and one of the world’s leading philosophers of physics, made his name studying the strange behavior of “entangled” quantum particles, which display behavior that is as counterintuitive as can be; if anything, he thinks physicists have downplayed how transformative entanglement is. At the same time, though, he thinks physicists can be too hasty to claim that our conventional views are misguided, especially when it comes to the nature of time. Test He defends a homey and unfashionable view of time. It has a built-in arrow. It is fundamental rather than derived from some deeper reality. Change is real, as opposed to an illusion or an artifact of perspective. The laws of physics act within time to generate each moment. Mixing mathematics, physics and philosophy, Maudlin bats away the reasons that scientists and philosophers commonly give for denying this folk wisdom. Not that he thinks they always are. Maudlin, who is a professor at New York University and one of the world’s leading philosophers of physics, made his name studying the strange behavior of “entangled” quantum particles, which display behavior that is as counterintuitive as can be; if anything, he thinks physicists have downplayed how transformative entanglement is. At the same time, though, he thinks physicists can be too hasty to claim that our conventional views are misguided, especially when it comes to the nature of time. Test He defends a homey and unfashionable view of time. It has a built-in arrow. It is fundamental rather than derived from some deeper reality. Change is real, as opposed to an illusion or an artifact of perspective. The laws of physics act within time to generate each moment. Mixing mathematics, physics and philosophy, Maudlin bats away the reasons that scientists and philosophers commonly give for denying this folk wisdom. Not that he thinks they always are. Maudlin, who is a professor at New York University and one of the world’s leading philosophers of physics, made his name studying the strange behavior of “entangled” quantum particles, which display behavior that is as counterintuitive as can be; if anything, he thinks physicists have downplayed how transformative entanglement is. At the same time, though, he thinks physicists can be too hasty to claim that our conventional views are misguided, especially when it comes to the nature of time. He defends a homey and unfashionable view of time. It has a built-in arrow. It is fundamental rather than derived from some deeper reality. Change is real, as opposed to an illusion or an artifact of perspective. The laws of physics act within time to generate each moment. Mixing mathematics, physics and philosophy, Maudlin bats away the reasons that scientists and philosophers commonly give for denying this folk wisdom. Not that he thinks they always are. Maudlin, who is a professor at New York University and one of the world’s leading philosophers of physics, made his name studying the strange behavior of “entangled” quantum particles, which display behavior that is as counterintuitive as can be; if anything, he thinks physicists have downplayed how transformative entanglement is. At the same time, though, he thinks physicists can be too hasty to claim that our conventional views are misguided, especially when it comes to the nature of time."
+  },
+  {
+    "id": "e1b7b120-8e89-4cec-9f88-1eccaac0b6dc",
+    "title": "Color Contrast",
+    "description": "desc",
+    "link": "https://signo.mathieudelvaux.be/tools/contrast",
+    "category": "tools",
+    "keywords": [
+      "tools",
+      "contrast"
+    ],
+    "content": ""
+  },
+  {
+    "id": "2b4b97e4-b8bb-4cd1-bf78-b86d54198126",
+    "title": "Tools",
+    "description": "desc",
+    "link": "https://signo.mathieudelvaux.be/tools",
+    "category": "tools",
+    "keywords": [
+      "tools"
+    ],
+    "content": "Physicists and philosophers seem to like nothing more than telling us that everything we thought about the world is wrong. They take a peculiar pleasure in exposing common sense as nonsense. But Tim Maudlin thinks our direct impressions of the world are a better guide to reality than we have been led to believe. Not that he thinks they always are. Maudlin, who is a professor at New York University and one of the world’s leading philosophers of physics, made his name studying the strange behavior of “entangled” quantum particles, which display behavior that is as counterintuitive as can be; if anything, he thinks physicists have downplayed how transformative entanglement is. At the same time, though, he thinks physicists can be too hasty to claim that our conventional views are misguided, especially when it comes to the nature of time. Test He defends a homey and unfashionable view of time. It has a built-in arrow. It is fundamental rather than derived from some deeper reality. Change is real, as opposed to an illusion or an artifact of perspective. The laws of physics act within time to generate each moment. Mixing mathematics, physics and philosophy, Maudlin bats away the reasons that scientists and philosophers commonly give for denying this folk wisdom. Not that he thinks they always are. Maudlin, who is a professor at New York University and one of the world’s leading philosophers of physics, made his name studying the strange behavior of “entangled” quantum particles, which display behavior that is as counterintuitive as can be; if anything, he thinks physicists have downplayed how transformative entanglement is. At the same time, though, he thinks physicists can be too hasty to claim that our conventional views are misguided, especially when it comes to the nature of time. Test He defends a homey and unfashionable view of time. It has a built-in arrow. It is fundamental rather than derived from some deeper reality. Change is real, as opposed to an illusion or an artifact of perspective. The laws of physics act within time to generate each moment. Mixing mathematics, physics and philosophy, Maudlin bats away the reasons that scientists and philosophers commonly give for denying this folk wisdom. Not that he thinks they always are. Maudlin, who is a professor at New York University and one of the world’s leading philosophers of physics, made his name studying the strange behavior of “entangled” quantum particles, which display behavior that is as counterintuitive as can be; if anything, he thinks physicists have downplayed how transformative entanglement is. At the same time, though, he thinks physicists can be too hasty to claim that our conventional views are misguided, especially when it comes to the nature of time. He defends a homey and unfashionable view of time. It has a built-in arrow. It is fundamental rather than derived from some deeper reality. Change is real, as opposed to an illusion or an artifact of perspective. The laws of physics act within time to generate each moment. Mixing mathematics, physics and philosophy, Maudlin bats away the reasons that scientists and philosophers commonly give for denying this folk wisdom. Not that he thinks they always are. Maudlin, who is a professor at New York University and one of the world’s leading philosophers of physics, made his name studying the strange behavior of “entangled” quantum particles, which display behavior that is as counterintuitive as can be; if anything, he thinks physicists have downplayed how transformative entanglement is. At the same time, though, he thinks physicists can be too hasty to claim that our conventional views are misguided, especially when it comes to the nature of time."
+  },
+  {
+    "id": "9bbc0811-ccc1-4e9d-a274-b7dce3e9993c",
+    "title": "Resources",
+    "description": "desc",
+    "link": "https://signo.mathieudelvaux.be/tools/resources",
+    "category": "tools",
+    "keywords": [
+      "tools",
+      "resources"
+    ],
+    "content": ""
+  },
+  {
+    "id": "56adc842-802c-4777-ae95-0ffbfccdf7fc",
+    "title": "W3C Guidelines",
+    "description": "desc",
+    "link": "https://signo.mathieudelvaux.be/tools/w3c",
+    "category": "tools",
+    "keywords": [
+      "tools",
+      "w3c"
+    ],
+    "content": ""
+  }
+]

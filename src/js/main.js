@@ -8,6 +8,7 @@ import * as Header from './header';
 import * as Progress from './progress';
 import * as Search from './search';
 import * as Animator from './animator';
+import * as Nav from './nav';
 import ScrollTo from 'storm-scroll-to';
 
 DomHelper.init();
@@ -25,3 +26,4 @@ Header.headroom.init();
 Analytics.init();
 Progress.init();
 Animator.init();
+Nav.init();

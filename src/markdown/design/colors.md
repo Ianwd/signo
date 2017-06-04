@@ -6,7 +6,27 @@ Color and contrast are key elements for users to correctly see and read your con
 
 Keep in mind this section is currently under writing. Visual examples are missing as well.
 
-<img src="@@webRoot/assets/img/doc-color-contrast.png" srcset="@@webRoot/assets/img/doc-color-contrast.png 1x, @@webRoot/assets/img/doc-color-contrast@2x.png 2x" alt="Color contrast comparison">
+<div class="exemple">
+  <figure>
+    <div>
+      <img aria-describedby="figure-1" src="@@webRoot/assets/img/doc-color-contrast-2.png" srcset="@@webRoot/assets/img/doc-color-contrast-2.png 1x, @@webRoot/assets/img/doc-color-contrast-2@2x.png 2x">
+    </div>
+    <figcaption id="figure-1">
+      <p>Do</p>
+      <p>These lines of text follow the color contrast ratio recommendations and are legible against their background colors.</p>
+    </figcaption>
+  </figure>
+  <figure>
+    <div>
+      <img aria-describedby="figure-2" src="@@webRoot/assets/img/doc-color-contrast-1.png" srcset="@@webRoot/assets/img/doc-color-contrast-1.png 1x, @@webRoot/assets/img/doc-color-contrast-1@2x.png 2x">
+    </div>
+    <figcaption id="figure-2">
+      <p>Don't</p>
+      <p>These lines of text follow the color contrast ratio recommendations and are legible against their background colors.</p>
+    </figcaption>
+  </figure>
+</div>
+
 
 ### W3C recommendations
 

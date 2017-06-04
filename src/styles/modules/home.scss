@@ -25,8 +25,12 @@
   }
 
   h1 {
-    padding: 186px 0 32px;
+    padding: 122px 0 32px;
     color: $white;
+
+    @include break(s) {
+      padding: 186px 0 32px;
+    }
   }
 }
 
@@ -45,12 +49,28 @@
   width: 100%;
   max-width: 780px;
   cursor: text;
+  transition: box-shadow .8s cubic-bezier(.2, 1, .25, 1);
 
   svg {
     position: absolute;
     top: 22px;
-    left: 23px;
+    right: 23px;
+    left: auto;
     opacity: .5;
+
+    @include break(s) {
+      top: 22px;
+      left: 23px;
+      right: auto;
+    }
+  }
+
+  @include break(s) {
+    padding: 12px 0 10px 24px;
+  }
+
+  &.active {
+    box-shadow: 0 5px 15px 0 rgba($black, 0.07), 0 15px 35px 0 rgba(49,49,93,0.09), 0 0 0 1px rgba(136,152,170,0.09);
   }
 }
 
@@ -61,14 +81,19 @@
   box-shadow: none;
   outline: none;
   font-family: "Axiforma";
-  font-size: 24px;
+  font-size: 18px;
   line-height: 40px;
   color: $space-cadet;
   letter-spacing: -0.5px;
-  margin: 0 0 0 41px;
+  margin: 0 41px 0 0;
   padding: 0;
   width: calc(100% - 41px);
   position: relative;
+
+  @include break(s) {
+    font-size: 24px;
+    margin: 0 0 0 41px;
+  }
 
   @include placeholder {
     color: rgba($space-cadet, .2);
@@ -89,20 +114,13 @@
   transform: translateY(16px);
 }
 
-.pageHead__searchItem {
-  a {
-    text-decoration: none;
-    color: $space-cadet;
-    display: block;
-    padding: 6px 24px 0;
-    line-height: 49px;
-    border-bottom: 1px solid $alice-blue;
-  }
-}
-
 .pageHead .search__cancelButton {
   top: 9px;
-  right: 10px;
+  right: 50px;
+
+  @include break(s) {
+    right: 10px;
+  }
 }
 
 .home__cards {

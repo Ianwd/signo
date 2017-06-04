@@ -6,13 +6,24 @@
 }
 
 .doc__column {
-  height: 100vh;
-  width: 260px;
   position: fixed;
+  left: 0;
+  right: 0;
   z-index: 1;
+  background-color: $neon-carrot;
+  background-image: radial-gradient(circle farthest-side at right bottom, rgba($white, .1) 0%, rgba($white, 0) 100%), url("../img/pattern-white.svg");
+  background-size: 100%, 300%;
+  background-repeat: no-repeat, repeat;
+
+  @include break(l) {
+    height: 100vh;
+    width: 260px;
+    background: none;
+    left: auto;
+    right: auto;
+  }
 
   &::after {
-    content: "";
     z-index: 0;
     position: absolute;
     top: 0;
@@ -23,23 +34,56 @@
     background-image: radial-gradient(circle farthest-side at right bottom, rgba($white, .1) 0%, rgba($white, 0) 100%), url("../img/pattern-white.svg");
     background-size: 100%;
     background-repeat: no-repeat, repeat;
+
+    @include break(l) {
+      content: "";
+    }
   }
 }
 
 .doc__columnContent {
+  display: flex;
+  flex-wrap: wrap;
   position: relative;
   z-index: 1;
   transition: opacity .2s cubic-bezier(.2, 1, .25, 1);
+
+  @include break(s) {
+    flex-wrap: unset;
+  }
+
+  @include break(l) {
+    display: block;
+  }
 }
 
 .doc__breadcrumb {
-  padding-top: 113px;
+  flex-grow: 1;
+  flex-shrink: 0;
+  padding: 89px 32px 22px;
   position: relative;
   z-index: 1;
   transition: padding .8s cubic-bezier(.2, 1, .25, 1);
 
+  @include break(s) {
+    padding: 89px 64px 22px;
+  }
+
+  @include break(l) {
+    padding: 113px 0 0;
+  }
+
   &.doc__breadcrumb--top {
-    padding-top: 49px;
+    padding-top: 14px;
+    padding-bottom: 12px;
+
+    @include break(l) {
+      padding-top: 49px;
+    }
+
+    + .doc__toc nav {
+      padding-bottom: 2px;
+    }
   }
 
   ol {
@@ -90,23 +134,94 @@
   text-decoration: none;
 }
 
+.doc__mask {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  position: relative;
+  mask-image: linear-gradient(90deg, transparent, black 32px, black calc(100% - 32px), transparent 100%);
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+
+  @include break(l) {
+    display: block;
+    overflow: auto;
+    right: auto;
+    mask-image: none;
+  }
+
+  a:first-child {
+    padding-left: 32px;
+
+    @include break(l) {
+      padding-left: 11px;
+    }
+  }
+
+  a:last-child {
+    padding-right: 32px;
+
+    @include break(s) {
+      padding-right: 64px;
+    }
+
+    @include break(l) {
+      padding-right: 11px;
+    }
+  }
+}
+
+.doc__mask::-webkit-scrollbar {
+  display: none;
+}
+
 .doc__toc {
-  display: table;
-  height: 100vh;
+  display: block;
+  align-self: flex-end;
   width: 100%;
-  position: absolute;
-  top: 0;
+  overflow: hidden;
+
+  flex-grow: 1;
+  flex-shrink: 0;
+
+  @include break(s) {
+    flex-grow: unset;
+    flex-shrink: unset;
+  }
+
+  @include break(l) {
+    padding-right: 0;
+    display: table;
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    overflow: auto;
+  }
 
   nav {
-    display: table-cell;
-    vertical-align: middle;
     width: 100%;
-    padding-left: 21px;
+
+    overflow: hidden;
+    margin-right: -20px;
+    padding: 0 0 12px;
+    display: flex;
+    justify-content: flex-end;
+    transition: padding .8s cubic-bezier(.2, 1, .25, 1);
+
+    @include break(l) {
+      overflow: auto;
+      margin-right: auto;
+      padding: 0 0 0 21px;
+      display: table-cell;
+      vertical-align: middle;
+    }
   }
 }
 
 .doc__tocLink {
-  display: table;
+  display: inline-block;
+  white-space: nowrap;
   font-weight: 600;
   font-size: 12px;
   color: rgba($white, .4);
@@ -117,6 +232,11 @@
   margin: 2px 0;
   position: relative;
   transition: color .6s cubic-bezier(.2, 1, .25, 1);
+
+  @include break(l) {
+    display: table;
+    white-space: normal;
+  }
 
   &.doc__tocLink--active {
     color: $white;
@@ -129,40 +249,101 @@
 
 .doc__progress {
   background-color: rgba($white, .4);
-  width: 1px;
-  top: 35vh;
-  bottom: 35vh;
-  left: 0;
+  width: 100%;
+  height: 2px;
+  overflow: hidden;
   position: absolute;
+  left: 0;
+  bottom: 0;
+
+  @include break(l) {
+    height: auto;
+    width: 1px;
+    top: 35vh;
+    bottom: 35vh;
+    position: absolute;
+  }
 }
 
 .doc__progressDone {
   background-color: $white;
-  width: 1px;
-  height: 100%;
-  top: 0;
-  transform-origin: 50% 0;
-  position: absolute;
+  height: 2px;
+  width: 100%;
+  transform-origin: 0 50%;
+  transform: scaleX(0) scaleY(1);
+  position: relative;
   transition: transform .6s cubic-bezier(.2, 1, .25, 1);
+
+  @include break(l) {
+    transform: scaleX(1) scaleY(0);
+    transform-origin: 50% 0;
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+  }
 }
 
 .doc__article {
   background-color: $white;
-  padding: 117px 0;
-  margin-left: 260px;
+  padding: 116px 0 61px;
+  margin-top: 139px;
+
+  @include break(xs) {
+    padding: 116px 32px 61px;
+  }
+
+  @include break(s) {
+    padding: 61px 0;
+  }
+
+  @include break(l) {
+    margin-top: 0;
+    padding: 117px 0;
+    margin-left: 260px;
+  }
 
   h1,
   h2,
   h3,
   h4,
   p {
-    padding: 0 130px;
+    padding: 0 32px;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include break(xs) {
+      padding: 0;
+    }
+
+    @include break(l) {
+      padding: 0 130px;
+      max-width: none;
+    }
   }
 
   img {
     position: relative;
-    left: -130px;
+    // left: -32px;
     margin: 32px 0;
+    width: 100vw;
+    left: calc(-50vw + 50%);
+
+    @include break(m) {
+      width: 75vw;
+      left: calc(-37vw + 50%);
+    }
+
+    @include break(l) {
+      left: -130px;
+      width: auto;
+    }
+
+    // @include break(l) {
+    //   left: -130px;
+    // }
   }
 
   p,
@@ -173,7 +354,19 @@
 
   ul,
   ol {
-    padding: 0 130px 0 146px;
+    padding: 0 32px 0 48px;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include break(xs) {
+      padding: 0 32px 0 16px;
+    }
+
+    @include break(l) {
+      padding: 0 130px 0 146px;
+      max-width: none;
+    }
   }
 
   h2 + p,
@@ -193,7 +386,17 @@
   letter-spacing: 0.8px;
   line-height: 18px;
   text-transform: uppercase;
-  margin: 0 130px 48px;
+  margin: 0 32px 48px;
+  max-width: 520px;
+
+  @include break(xs) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @include break(l) {
+    margin: 0 130px 48px;
+  }
 }
 
 .doc__readmore {
@@ -201,36 +404,58 @@
   position: relative;
   z-index: 1;
   border-top: 1px $alice-blue solid;
-  padding: 96px 0;
+  padding: 32px 0;
+
+  @include break(l) {
+    padding: 96px 0;
+  }
 
   .container {
     display: flex;
+    padding: 0;
+    flex-wrap: wrap;
+
+    @include break(s) {
+      padding: 32px;
+    }
   }
 }
 
 .doc__cta {
   position: relative;
-  flex: 1;
   font-size: 36px;
   font-weight: 100;
   letter-spacing: 0.2px;
   border-right: 1px solid $alice-blue;
   z-index: 0;
   overflow: hidden;
+  flex: 0 0 100%;
+
+  @include break(s) {
+    flex: 1;
+  }
 
   &::after {
     content: "";
     display: block;
     position: absolute;
     z-index: -1;
-    height: 20vw;
-    width: 20vw;
-    border-radius: 20vw;
-    bottom: -10vw;
-    right: -10vw;
+    height: 42vw;
+    width: 42vw;
+    border-radius: 42vw;
+    bottom: -21vw;
+    right: -21vw;
     transform: scale(0);
     background-color: rgba($alice-blue, .5);
     animation: rippleOut .8s cubic-bezier(.2, 1, .25, 1) both;
+
+    @include break(s) {
+      height: 20vw;
+      width: 20vw;
+      border-radius: 20vw;
+      bottom: -10vw;
+      right: -10vw;
+    }
   }
 
   &:hover::after {
@@ -241,29 +466,46 @@
   &:last-child {
     margin-right: 0;
     border: 0;
+    text-align: right;
+
+    @include break(s) {
+      text-align: left;
+    }
 
     &::after {
       right: auto;
-      left: -10vw;
+      left: -21vw;
+
+      @include break(s) {
+        left: -10vw;
+      }
     }
   }
 
   a {
-    padding: 96px 64px;
+    padding: 32px;
     display: block;
     text-decoration: none;
     color: inherit;
+
+    @include break(l) {
+      padding: 96px 64px;
+    }
   }
 
   span {
     display: block;
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 600;
     color: rgba($jet, .6);
     letter-spacing: 0.5px;
     line-height: 18px;
     text-transform: uppercase;
     margin-bottom: 4px;
+
+    @include break(m) {
+      font-size: 12px;
+    }
   }
 }
 
@@ -286,5 +528,90 @@
   100% {
     opacity: 0;
     transform: scale(5);
+  }
+}
+
+.exemple {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 64px 0;
+  max-width: 780px;
+  margin: 0 auto;
+
+  @include break(xs) {
+    margin: 0 -32px;
+  }
+
+  @include break(s) {
+    margin: 0 auto;
+  }
+
+  figure {
+    margin: 0;
+    margin-right: 32px;
+    width: 100%;
+    flex: 0 0 auto;
+    overflow: hidden;
+
+    @include break(xs) {
+      width: 50%;
+      flex: 1;
+    }
+
+    p:first-child {
+      color: $learn;
+      margin-bottom: -8px;
+      font-weight: 500;
+    }
+  }
+
+  figure:last-child {
+    margin-right: 0;
+    margin-top: 64px;
+
+    @include break(xs) {
+      margin-top: 0;
+    }
+
+    p:first-child {
+      color: $dev;
+    }
+
+    figcaption:last-child::before {
+      background-color: $dev;
+    }
+  }
+
+  p {
+    padding: 0;
+    font-size: 12px;
+    line-height: 24px;
+  }
+
+  div {
+    margin-bottom: -9px;
+  }
+
+  img {
+    left: 0;
+    width: 100%;
+    margin: 0;
+
+    object-fit: cover;
+  }
+
+  figcaption {
+    padding: 0 32px;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: -16px;
+      bottom: -12px;
+      width: 4px;
+      background-color: $learn;
+    }
   }
 }

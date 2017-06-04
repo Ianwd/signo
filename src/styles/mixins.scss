@@ -33,3 +33,23 @@
     @content;
   }
 }
+
+$breakpoints: (
+  xs: 420px,
+  s: 670px,
+  m: 880px,
+  l: 1040px,
+  xl: 1160px
+);
+
+@mixin break($size) {
+  @media (min-width: map-get($breakpoints, $size)) {
+    @content;
+  }
+}
+
+@mixin break-size($size) {
+  @media (min-width: $size) {
+    @content;
+  }
+}
