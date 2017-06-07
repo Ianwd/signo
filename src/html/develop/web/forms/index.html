@@ -4,7 +4,7 @@
   <head>
     @@include('./templates/head.html', {
       "page-title": "Forms – Web - Develop | signo",
-      "page-desc": "desc",
+      "page-desc": "Read on how to make your HTML forms accessibility-friendly.",
       "og-url": "/develop/web/forms"
     })
   </head>
@@ -17,8 +17,8 @@
       "search": true,
       "header-theme": ""
     })
-    <main class="doc" data-sticky-container>
-      <aside class="doc__column" role="navigation">
+    <main class="doc">
+      <aside class="doc__column">
         <div class="doc__columnContent" role="menubar">
           <nav class="doc__breadcrumb" aria-label="breadcrumb">
             <ol>
@@ -29,11 +29,11 @@
             </ol>
           </nav>
           <div class="doc__toc">
-            <nav aria-label="Interactive table of content">
+            <nav aria-label="Table of content">
               <div class="doc__mask">
-                <a class="doc__tocLink js-toc doc__tocLink--active" href="#contrast-ratio">Contrast ratio</a>
-                <a class="doc__tocLink js-toc" href="#color-blindness">Color blindness</a>
-                <a class="doc__tocLink js-toc" href="#sensory-information">Sensory information</a>
+                <a class="doc__tocLink js-toc js-scrollTo doc__tocLink--active" href="#logic">Logic</a>
+                <a class="doc__tocLink js-toc js-scrollTo" href="#keyboard">Keyboard</a>
+                <a class="doc__tocLink js-toc js-scrollTo" href="#elements">Elements</a>
               </div>
               <div class="doc__progress">
                 <div class="doc__progressDone js-progress"></div>
@@ -42,24 +42,23 @@
           </div>
         </div>
       </aside>
-      <article class="doc__article">
-        <div class="doc__update">Last updated <time datetime="2017-04-19">April 19, 2017</time></div>
+      <article class="doc__article" role="article">
+        <div class="doc__update">Last updated <time datetime="2017-06-01">June 1, 2017</time></div>
         @@include(markdown('./markdown/develop/web/forms.md'))
       </article>
     </main>
     <aside class="doc__readmore">
       <div class="container">
-
         <div class="doc__cta">
-          <a href="">
+          <a href="@@webRoot/develop/web/aria">
             <span>Previously</span>
-            Layout
+            Aria
           </a>
         </div>
         <div class="doc__cta">
-          <a href="">
+          <a href="@@webRoot/develop/web/navigation">
             <span>Read next</span>
-            Writing
+            Navigation
           </a>
         </div>
       </div>

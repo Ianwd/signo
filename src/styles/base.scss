@@ -481,6 +481,15 @@ main {
   }
 }
 
+.sc {
+  text-transform: none;
+  font-variant: small-caps;
+}
+
+.lc {
+  text-transform: none;
+}
+
 .button {
   background-color: $design;
   color: $white;
@@ -533,6 +542,10 @@ main {
       animation: buttonArrow .8s cubic-bezier(.2, 1, .25, 1);
     }
   }
+}
+
+.article__content .button {
+  border-bottom: 0;
 }
 
 @keyframes buttonArrow {
@@ -769,4 +782,8 @@ main {
     opacity: 1;
     transform: translateY(0) scale(1);
   }
+}
+
+.cryptedmail::after {
+  content: attr(data-name) "@" attr(data-domain) "." attr(data-tld);
 }

@@ -1,6 +1,3 @@
-import inView from 'in-view';
-import * as Viewport from './utils/viewport';
-import debounce from 'lodash/debounce';
 import * as Type from 'ityped';
 import scrollReveal from 'scrollreveal';
 
@@ -10,7 +7,6 @@ const revealCfg = {
   easing: 'cubic-bezier(0.2, 1, 0.25, 1)',
   duration: 2400,
   delay: 0,
-  // viewFactor: 0.4,
   viewFactor: 0,
   viewOffset: {
     top: 0,
@@ -78,9 +74,9 @@ const revealLeft = {
   },
   viewOffset: {
     top: 0,
-    right: -256,
+    right: -1024,
     bottom: 0,
-    left: -256,
+    left: -1024,
   },
 };
 const revealCardLeft = {
@@ -99,7 +95,6 @@ const revealCardRight = {
     domEl.classList.add('revealCardRight');
   },
 };
-const cards = document.querySelectorAll('.card--category');
 const about = document.querySelector('.pageHead--about');
 const loopText = ['love ❤️', 'fun 🍾', 'pride 🎉', 'sweat 💦', 'coffee ☕️', 'friends 🍻', 'travels 🚌', 'DWM 🎓'];
 
@@ -108,10 +103,6 @@ const loopText = ['love ❤️', 'fun 🍾', 'pride 🎉', 'sweat 💦', 'coffee
  * @return {[type]} [description]
  */
 export function init() {
-  if (cards) {
-    listen();
-    checkFold();
-  }
   if (about) {
     loopAbout();
   }
@@ -139,7 +130,8 @@ function loopAbout() {
  */
 function srAnimate() {
   window.sr = scrollReveal(revealCfg);
-  window.sr.reveal('p, h2, .doc__article h1, .doc__update, .doc__article li, .doc__article pre', fadeInLeft);
+  window.sr.reveal('.resource', fadeInUpRotate, 100);
+  window.sr.reveal('p, h2, .doc__article h1, .doc__update, .doc__article li, .doc__article pre, .article__content li', fadeInLeft);
   window.sr.reveal('.pageHead nav', fadeInDownFast);
   window.sr.reveal('.pageHead__link', {
     origin: 'top',
@@ -156,44 +148,7 @@ function srAnimate() {
   window.sr.reveal('figure img', revealLeft, 300);
   window.sr.reveal('figure p', fadeInUp, 100);
   window.sr.reveal('img', revealLeft);
+  window.sr.reveal('.doc__cta', fadeInUp, 100);
   window.sr.reveal('.footer__logo, .footer__column', footerAnim, 100);
   window.sr.reveal('.footer__bottom .footer__link, .footer__bottom small', footerSmall, 100);
-}
-
-/**
- * [checkVisibility description]
- * @return {[type]} [description]
- */
-function checkVisibility() {
-  for (const card of cards) {
-    if (inView.is(card)) {
-      //
-    }
-  }
-}
-
-/**
- * [checkFold description]
- * @return {[type]} [description]
- */
-function checkFold() {
-  for (const card of cards) {
-    document.addEventListener('DOMContentLoaded', () => {
-      console.log(Viewport.getScrollPosition(card));
-    });
-    if (Viewport.getScrollPosition(card) < -100) {
-      card.classList.add('js-animated');
-    }
-  }
-}
-
-/**
- * Watch Scroll event
- * @param  {string} el HTML node for Progress
- * @return {undefined}
- */
-function listen() {
-  window.addEventListener('scroll', () => {
-    checkVisibility();
-  });
 }

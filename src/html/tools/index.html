@@ -4,7 +4,7 @@
   <head>
     @@include('./templates/head.html', {
       "page-title": "Tools – signo",
-      "page-desc": "desc",
+      "page-desc": "Have a look at our accessibility toolbox and equip yourself.",
       "og-url": "/tools"
     })
   </head>
@@ -18,7 +18,7 @@
       "header-theme": ""
     })
 
-    <main>
+    <main id="maincontent">
       <header class="pageHead pageHead--category pageHead--tools">
         <div class="container">
           <nav>
@@ -30,46 +30,56 @@
                 <div class="pageHead__navLinks">
                   <a href="@@webRoot/tools/contrast" class="pageHead__link">Color Contrast by signo</a>
                   <a href="@@webRoot/tools/resources" class="pageHead__link">Resources</a>
+                  <a href="@@webRoot/tools/w3c" class="pageHead__link">W3C Guidelines</a>
                 </div>
               </li>
             </ul>
           </nav>
           <div class="pageHead__content">
             <h4>
-              A new design thinking
+              A new way to work
             </h4>
             <h1>
-              Building with <b>assistive technology</b>
+              Creating an <b>accessibility toolbox</b>
             </h1>
-            <a href="@@webRoot/design" class="button button--ghost">Equip yourself</a>
+            <a href="#content" class="button button--ghost js-scrollTo">Equip yourself</a>
           </div>
         </div>
       </header>
       <div class="container">
-        <div class="article__content">
+        <div class="article__content" id="content">
           <p>
-            Physicists and philosophers seem to like nothing more than telling us that everything we thought about the world is wrong. They take a peculiar pleasure in exposing common sense as nonsense. But Tim Maudlin thinks our direct impressions of the world are a better guide to reality than we have been led to believe.
+            The rights tools used correctly will definitly improve an accessibility-friendly workflow. At least that's our belief. This is why we put together this "Tool" section: to provide you with relevant tools that don't interfere with your habits.
+          </p>
+          <h2>Color Contrast by signo</h2>
+          <p>
+            This is our very own tool built to help you figure out color contrast. It was built by us on top of the <a href="https://www.w3.org/TR/WCAG/" target="_blank">WCAG</a> (Web Content Accessibility Guidelines) guidelines. You can <a href="@@webRoot/design/colors">learn more about color contrast</a> in our Design section.
           </p>
           <p>
-            Not that he thinks they always are. Maudlin, who is a professor at New York University and one of the world’s leading philosophers of physics, made his name studying the strange behavior of “entangled” quantum particles, which display behavior that is as counterintuitive as can be; if anything, he thinks physicists have downplayed how transformative entanglement is. At the same time, though, he thinks physicists can be too hasty to claim that our conventional views are misguided, especially when it comes to the nature of time.
+            Our Color Contrast tool will <b>calculate the contrast ratio of any colour</b> you feed it with: start with your foreground color, then enter your background color.<br />
+            If your color contrast ratio fulfills all the WCAG 2.0 certifications, you get a nice preview of your palette. If your ratio is below 7, where contrast levels start to get low, we will <b>suggest you a range of colors which are close to yours</b>, but which features a contrast ratio of 7 or above.
           </p>
-          <div class="dark dark--neon">
-            <h2>Test</h2>
+          <p>
+            Please note that in order to use our tool, JavaScript is required 👍
+          </p>
+          <p>
+            <a href="@@webRoot/tools/contrast" class="button button--tools">Check your colors</a>
+          </p>
+          <div class="dark dark--tools">
+            <h2>Resources</h2>
             <p>
-              He defends a homey and unfashionable view of time. It has a built-in arrow. It is fundamental rather than derived from some deeper reality. Change is real, as opposed to an illusion or an artifact of perspective. The laws of physics act within time to generate each moment. Mixing mathematics, physics and philosophy, Maudlin bats away the reasons that scientists and philosophers commonly give for denying this folk wisdom.
+              We put together a list of what we found was useful when building this website, and what we think is useful when working with accessibility in any field, whether it be design or development. You can also suggest us additions to this list through GitHub.
             </p>
-            <div class="img">
-              <img src="@@webRoot/assets/img/article-laws.jpg" srcset="@@webRoot/assets/img/article-laws.jpg 1x, @@webRoot/assets/img/article-laws@2x.jpg 2x, @@webRoot/assets/img/article-laws@3x.jpg 3x" alt="Desc">
-            </div>
             <p>
-              Not that he thinks they always are. Maudlin, who is a professor at New York University and one of the world’s leading philosophers of physics, made his name studying the strange behavior of “entangled” quantum particles, which display behavior that is as counterintuitive as can be; if anything, he thinks physicists have downplayed how transformative entanglement is. At the same time, though, he thinks physicists can be too hasty to claim that our conventional views are misguided, especially when it comes to the nature of time.
+              <a href="@@webRoot/tools/resources" class="button button--tools">Resource your bookmarks</a>
             </p>
           </div>
+          <h2>W3C Guidelines</h2>
           <p>
-            He defends a homey and unfashionable view of time. It has a built-in arrow. It is fundamental rather than derived from some deeper reality. Change is real, as opposed to an illusion or an artifact of perspective. The laws of physics act within time to generate each moment. Mixing mathematics, physics and philosophy, Maudlin bats away the reasons that scientists and philosophers commonly give for denying this folk wisdom.
+            Also know as WCAG, or WCAG 2.0 in its current norm, these rules specify how web developers and designers should create web content which can be accessible to people with disabilities. Disabilities include <a href="@@webRoot/learn/impairments">many different impairments</a>.
           </p>
           <p>
-            Not that he thinks they always are. Maudlin, who is a professor at New York University and one of the world’s leading philosophers of physics, made his name studying the strange behavior of “entangled” quantum particles, which display behavior that is as counterintuitive as can be; if anything, he thinks physicists have downplayed how transformative entanglement is. At the same time, though, he thinks physicists can be too hasty to claim that our conventional views are misguided, especially when it comes to the nature of time.
+            <a href="@@webRoot/tools/w3c" class="button button--tools">WCAG me good</a>
           </p>
         </div>
       </div>

@@ -4,7 +4,7 @@
   <head>
     @@include('./templates/head.html', {
       "page-title": "Aria – Web - Develop | signo",
-      "page-desc": "desc",
+      "page-desc": "Find out how Aria can help you build better online experiences.",
       "og-url": "/develop/web/aria"
     })
   </head>
@@ -18,7 +18,7 @@
       "header-theme": ""
     })
     <main class="doc" data-sticky-container>
-      <aside class="doc__column" role="navigation">
+      <aside class="doc__column">
         <div class="doc__columnContent" role="menubar">
           <nav class="doc__breadcrumb" aria-label="breadcrumb">
             <ol>
@@ -29,11 +29,10 @@
             </ol>
           </nav>
           <div class="doc__toc">
-            <nav aria-label="Interactive table of content">
+            <nav aria-label="Table of content">
               <div class="doc__mask">
-                <a class="doc__tocLink js-toc doc__tocLink--active" href="#contrast-ratio">Contrast ratio</a>
-                <a class="doc__tocLink js-toc" href="#color-blindness">Color blindness</a>
-                <a class="doc__tocLink js-toc" href="#sensory-information">Sensory information</a>
+                <a class="doc__tocLink js-toc doc__tocLink--active" href="#roles">Roles</a>
+                <a class="doc__tocLink js-toc" href="#states-properties">States & properties</a>
               </div>
               <div class="doc__progress">
                 <div class="doc__progressDone js-progress"></div>
@@ -42,24 +41,23 @@
           </div>
         </div>
       </aside>
-      <article class="doc__article">
-        <div class="doc__update">Last updated <time datetime="2017-04-19">April 19, 2017</time></div>
+      <article class="doc__article" role="article">
+        <div class="doc__update">Last updated <time datetime="2017-04-19">June 1, 2017</time></div>
         @@include(markdown('./markdown/develop/web/aria.md'))
       </article>
     </main>
     <aside class="doc__readmore">
       <div class="container">
-
         <div class="doc__cta">
-          <a href="">
+          <a href="@@webRoot/develop/web/semantic">
             <span>Previously</span>
-            Layout
+            Semantic
           </a>
         </div>
         <div class="doc__cta">
-          <a href="">
+          <a href="@@webRoot/develop/web/forms">
             <span>Read next</span>
-            Writing
+            Forms
           </a>
         </div>
       </div>

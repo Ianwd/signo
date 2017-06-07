@@ -4,7 +4,7 @@
   <head>
     @@include('./templates/head.html', {
       "page-title": "Color Contrast – signo",
-      "page-desc": "desc",
+      "page-desc": "Calculate and validate the contrast between two colors and get smart suggestions.",
       "og-url": "/tools/contrast"
     })
   </head>
@@ -82,7 +82,7 @@
                 Normal text
                 <span class="validBadge js-validationSmallText">WCAG AAA</span>
               </div>
-              <div class="navGroup">
+              <div class="navGroup" aria-live="assertive" aria-atomic="true">
                 Current color ratio
                 <span class="ratioBadge"><span class="js-currentContrast">0.0</span>:1</span>
               </div>

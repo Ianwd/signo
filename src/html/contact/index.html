@@ -4,7 +4,7 @@
   <head>
     @@include('./templates/head.html', {
       "page-title": "Contact – signo",
-      "page-desc": "desc",
+      "page-desc": "Know how to get in touch with signo.",
       "og-url": "/contact"
     })
   </head>
@@ -14,9 +14,35 @@
       "active-dev": "",
       "active-tools": "",
       "active-learn": "",
-      "search": true,
-      "header-theme": ""
+      "search": false,
+      "header-theme": "header--light"
     })
+
+    <main>
+      <header class="pageHead pageHead--category pageHead--contact">
+        <div class="container">
+          <div class="pageHead__content">
+            <h1>
+              👉 Let's get in touch
+            </h1>
+          </div>
+        </div>
+      </header>
+      <div class="container">
+        <div class="article__content">
+          <p>
+            signo is built and maintained by <a href="https://mathieudelvaux.be">Mathieu Delvaux</a>.<br />
+            For <b>anything brief</b>, you may DM him through his <a href="https://twitter.com/messages/compose?recipient_id=mathieudelvaux">Twitter account</a>.
+          </p>
+          <p>
+            For <b>anything less briefy</b>, you can reach Mathieu by mail at <a data-name="hello" data-domain="mathieudelvaux" data-tld="be" href="#" class="cryptedmail" onclick="window.location.href = 'mailto:' + this.dataset.name + '@' + this.dataset.domain + '.' + this.dataset.tld; return false;"></a>.
+          </p>
+          <p>
+            And for <b>anything related to an issue with signo</b>, like a dead link, a display issue, a performance issue or any other error, please <a href="https://github.com/mathieudelvaux/signo/issues/new">report a new issue</a> on GitHub.
+          </p>
+        </div>
+      </div>
+    </main>
 
     @@include('./templates/footer.html')
 

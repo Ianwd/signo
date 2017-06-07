@@ -25,7 +25,7 @@ markdown.marked.setOptions({
   pedantic: false,
   sanitize: false,//set to false to allow inline HTML
   smartLists: true,
-  smartypants: true,
+  smartypants: false,
   langPrefix: 'numbered lang-'
 });
 
@@ -142,7 +142,7 @@ gulp.task('js', () => {
   //     if (!isSourceMap) this.push(file);
   //     cb();
   //   }))
-  .pipe(util.env.type === 'prod' ? uglify() : util.noop())
+  .pipe(util.env.type === 'prod' ? uglify({compress: {drop_console: true}}) : util.noop())
   // .pipe(util.env.type === 'dev' ? sourcemaps.write('./') : util.noop())
   .pipe(gulp.dest('./build/assets/js'))
 });

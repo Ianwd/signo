@@ -4,7 +4,7 @@
   <head>
     @@include('./templates/head.html', {
       "page-title": "W3C Guidelines – signo",
-      "page-desc": "desc",
+      "page-desc": "The WCAG published by the W3C is the graal of all guidelines for accessibility.",
       "og-url": "/tools/w3c"
     })
   </head>
@@ -17,6 +17,44 @@
       "search": true,
       "header-theme": ""
     })
+
+    <main class="article">
+      <article>
+        <div class="container">
+          <header class="article__title article__title--guidelines">
+            <nav>
+              <ul class="pageHead__nav">
+                <li class="pageHead__navTitle">
+                  <h3 class="title">Tools</h3>
+                </li>
+                <li class="pageHead__navWrapper">
+                  <div class="pageHead__navLinks">
+                    <a href="@@webRoot/tools/contrast" class="pageHead__link">Color Contrast by signo</a>
+                    <a href="@@webRoot/tools/resources" class="pageHead__link">Resources</a>
+                    <a href="@@webRoot/tools/w3c" class="pageHead__link pageHead__link--active">W3C Guidelines</a>
+                  </div>
+                </li>
+              </ul>
+            </nav>
+            <h1><b>The graal of all</b> guidelines</h1>
+          </header>
+          <div class="article__content close">
+            <p>
+              The W3C Guidelines for accessibility, refered to as WCAG, are part of a series of guidelines published by the World Wide Web Consortium. They describe how to create accessible content for individuals with disabilities, but also for what they name "restricted devices" — understand mobile phones. The present version, 2.0, was adopted in 2012.
+            </p>
+            <p>
+              One thing for sure is that anyone willingly trying to go through these guidelines has a very strong sense of determination. These rules are written very specifically, for the best of all of us. But then they are indigestible to read. Through signo, we tried to rewrite some aspects of this ruling, and most importantly, simplify it.
+            </p>
+            <p>
+              You can still go through it if you will. Be warned it contains roughly 14.500 words.
+            </p>
+            <p>
+              <a href="https://www.w3.org/TR/WCAG/" class="button button--tools">I have enough courage</a>
+            </p>
+          </div>
+        </div>
+      </article>
+    </main>
 
     @@include('./templates/footer.html')
 

@@ -22,9 +22,9 @@ export function init() {
   })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
   /* eslint-enable */
 
-  /* Temporary disable for dev
+  /* Temporary disable for dev*/
   window.ga('create', gaTrackingId, 'auto');
-  window.ga('send', 'pageview');*/
+  window.ga('send', 'pageview');
 }
 
 /**

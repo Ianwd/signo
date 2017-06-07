@@ -94,3 +94,22 @@ p {
 article {
   font-weight: 300;
 }
+
+.inline-code {
+  color: $jet;
+  background: none;
+  font-family: "SourceCodePro", monospace;
+  font-weight: 400;
+  font-size: 16px;
+  text-align: left;
+  text-shadow: none;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  background-color: $alice-blue;
+  padding: 3px 6px;
+  border-radius: 4px;
+  margin: 0 1px;
+}

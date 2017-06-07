@@ -4,7 +4,7 @@
   <head>
     @@include('./templates/head.html', {
       "page-title": "Develop – signo",
-      "page-desc": "desc",
+      "page-desc": "Check out some development resources for inclusiveness on native mobile apps and browsers.",
       "og-url": "/develop"
     })
   </head>
@@ -18,7 +18,7 @@
       "header-theme": ""
     })
 
-    <main>
+    <main id="maincontent">
       <header class="pageHead pageHead--category pageHead--dev">
         <div class="container">
           <nav>
@@ -59,31 +59,36 @@
         </div>
       </header>
       <div class="container">
-        <div class="article__content">
+        <div class="article__content" id="content">
           <p>
-            Physicists and philosophers seem to like nothing more than telling us that everything we thought about the world is wrong. They take a peculiar pleasure in exposing common sense as nonsense. But Tim Maudlin thinks our direct impressions of the world are a better guide to reality than we have been led to believe.
+            For the sake of simplicity, we split the "Develop" section in two different parts:
+          </p>
+          <ul>
+            <li><b><a href="@@webRoot/develop/web">Develop for the Web</a></b> implies anything which is rendered by a browser;</li>
+            <li><b><a href="@@webRoot/develop/mobile">Develop for Mobile</a></b> here signifies native apps for iOS, Android and Windows Phone.</li>
+          </ul>
+          <h2>Develop for the Web</h2>
+          <p>
+            Developing an accessible web experience requires many small different aspects coming together. It starts from figuring out how to use a screen reader to making usable navigation.
           </p>
           <p>
-            Not that he thinks they always are. Maudlin, who is a professor at New York University and one of the world’s leading philosophers of physics, made his name studying the strange behavior of “entangled” quantum particles, which display behavior that is as counterintuitive as can be; if anything, he thinks physicists have downplayed how transformative entanglement is. At the same time, though, he thinks physicists can be too hasty to claim that our conventional views are misguided, especially when it comes to the nature of time.
+            Browsers and Operating Systems are already full of features and operate according to standards. You only have to stick to these rules to go the easy path. And if you have to leave this path, there are ways to get you back on track.
           </p>
-          <div class="dark dark--neon">
-            <h2>Test</h2>
+          <p>
+            <a href="@@webRoot/develop/web" class="button button--develop">Browse web development</a>
+          </p>
+          <div class="dark dark--dev">
+            <h2>Develop for Mobile</h2>
             <p>
-              He defends a homey and unfashionable view of time. It has a built-in arrow. It is fundamental rather than derived from some deeper reality. Change is real, as opposed to an illusion or an artifact of perspective. The laws of physics act within time to generate each moment. Mixing mathematics, physics and philosophy, Maudlin bats away the reasons that scientists and philosophers commonly give for denying this folk wisdom.
+              Native mobile development is basically platform-dependant, which means that according to which Operating System you will be developing for, the how tos will heavily differ.
             </p>
-            <div class="img">
-              <img src="@@webRoot/assets/img/article-laws.jpg" srcset="@@webRoot/assets/img/article-laws.jpg 1x, @@webRoot/assets/img/article-laws@2x.jpg 2x, @@webRoot/assets/img/article-laws@3x.jpg 3x" alt="Desc">
-            </div>
             <p>
-              Not that he thinks they always are. Maudlin, who is a professor at New York University and one of the world’s leading philosophers of physics, made his name studying the strange behavior of “entangled” quantum particles, which display behavior that is as counterintuitive as can be; if anything, he thinks physicists have downplayed how transformative entanglement is. At the same time, though, he thinks physicists can be too hasty to claim that our conventional views are misguided, especially when it comes to the nature of time.
+              When developing an app, you generally don't limit yourself to one OS. Thus, instead of limiting our decumentation to one OS or reinventing the wheel, we decided to offer direct linking to relevant documentation in line with each operating system.
+            </p>
+            <p>
+              <a href="@@webRoot/develop/mobile" class="button button--develop">React to mobile SDK<span class="sc">s</span></a>
             </p>
           </div>
-          <p>
-            He defends a homey and unfashionable view of time. It has a built-in arrow. It is fundamental rather than derived from some deeper reality. Change is real, as opposed to an illusion or an artifact of perspective. The laws of physics act within time to generate each moment. Mixing mathematics, physics and philosophy, Maudlin bats away the reasons that scientists and philosophers commonly give for denying this folk wisdom.
-          </p>
-          <p>
-            Not that he thinks they always are. Maudlin, who is a professor at New York University and one of the world’s leading philosophers of physics, made his name studying the strange behavior of “entangled” quantum particles, which display behavior that is as counterintuitive as can be; if anything, he thinks physicists have downplayed how transformative entanglement is. At the same time, though, he thinks physicists can be too hasty to claim that our conventional views are misguided, especially when it comes to the nature of time.
-          </p>
         </div>
       </div>
     </main>

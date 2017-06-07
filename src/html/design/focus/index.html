@@ -4,7 +4,7 @@
   <head>
     @@include('./templates/head.html', {
       "page-title": "Focus - Design | signo",
-      "page-desc": "desc",
+      "page-desc": "Find out how to focus attention to what's relevant.",
       "og-url": "/design/focus"
     })
   </head>
@@ -28,11 +28,12 @@
             </ol>
           </nav>
           <div class="doc__toc">
-            <nav aria-label="Interactive table of content">
+            <nav aria-label="Table of content">
               <div class="doc__mask">
-                <a class="doc__tocLink js-toc doc__tocLink--active" href="#contrast-ratio">Contrast ratio</a>
-                <a class="doc__tocLink js-toc" href="#color-blindness">Color blindness</a>
-                <a class="doc__tocLink js-toc" href="#sensory-information">Sensory information</a>
+                <a class="doc__tocLink js-toc js-scrollTo doc__tocLink--active" href="#similarity">Similarity</a>
+                <a class="doc__tocLink js-toc js-scrollTo" href="#figure-ground">Figure &amp; Ground</a>
+                <a class="doc__tocLink js-toc js-scrollTo" href="#closure">Closure</a>
+                <a class="doc__tocLink js-toc js-scrollTo" href="#proximity">Proximity</a>
               </div>
               <div class="doc__progress">
                 <div class="doc__progressDone js-progress"></div>
@@ -41,8 +42,8 @@
           </div>
         </div>
       </aside>
-      <article class="doc__article">
-        <div class="doc__update">Last updated <time datetime="2017-04-19">April 19, 2017</time></div>
+      <article class="doc__article" role="article">
+        <div class="doc__update">Last updated <time datetime="2017-06-01">June 1, 2017</time></div>
         @@include(markdown('./markdown/design/focus.md'))
       </article>
     </main>
@@ -50,15 +51,15 @@
       <div class="container">
 
         <div class="doc__cta">
-          <a href="">
+          <a href="@@webRoot/design/writing">
             <span>Previously</span>
-            Layout
+            Writing
           </a>
         </div>
         <div class="doc__cta">
-          <a href="">
+          <a href="@@webRoot/design/motion">
             <span>Read next</span>
-            Writing
+            Motion
           </a>
         </div>
       </div>

@@ -4,7 +4,7 @@
   <head>
     @@include('./templates/head.html', {
       "page-title": "Design – signo",
-      "page-desc": "desc",
+      "page-desc": "Discover a new design thinking for accessibility.",
       "og-url": "/design"
     })
   </head>
@@ -18,7 +18,7 @@
       "header-theme": ""
     })
 
-    <main>
+    <main id="maincontent">
       <header class="pageHead pageHead--category pageHead--design">
         <div class="container">
           <nav>
@@ -43,35 +43,60 @@
             <h1>
               Crafting inclusive <b>digital experiences</b>
             </h1>
-            <a href="@@webRoot/design" class="button button--ghost">Read our design tips</a>
+            <a href="#content" class="button button--ghost js-scrollTo">Read our design tips</a>
           </div>
         </div>
       </header>
       <div class="container">
-        <div class="article__content">
+        <div class="article__content" id="content">
           <p>
-            Physicists and philosophers seem to like nothing more than telling us that everything we thought about the world is wrong. They take a peculiar pleasure in exposing common sense as nonsense. But Tim Maudlin thinks our direct impressions of the world are a better guide to reality than we have been led to believe.
+            Screen accessibility resides in a joint effort from developers and you, designers. Many different aspects of designing an inclusive experience play an important role when combined together.
+          </p>
+          <h2>Colors</h2>
+          <p>
+            What may seem completely standard to some of us, may not to others. Color is one of those aspects we don't really think much about. Most designers probably don't have any color disability, and thus cannot really understand the need of a contrast thresold.
           </p>
           <p>
-            Not that he thinks they always are. Maudlin, who is a professor at New York University and one of the world’s leading philosophers of physics, made his name studying the strange behavior of “entangled” quantum particles, which display behavior that is as counterintuitive as can be; if anything, he thinks physicists have downplayed how transformative entanglement is. At the same time, though, he thinks physicists can be too hasty to claim that our conventional views are misguided, especially when it comes to the nature of time.
+            Making a good-looking color palette is easy. Making an accessible color palette is not much harder. Color contrast is important in many ways: not everyone is able to see colors correctly, or any color at all. It is really important we don't base visual feedback on only sensory information.
           </p>
-          <div class="dark dark--jet">
-            <h2>Test</h2>
+          <p>
+            <a href="@@webRoot/design/colors" class="button button--design">See true colors</a>
+          </p>
+          <div class="dark dark--space">
+            <h2>Writing</h2>
             <p>
-              He defends a homey and unfashionable view of time. It has a built-in arrow. It is fundamental rather than derived from some deeper reality. Change is real, as opposed to an illusion or an artifact of perspective. The laws of physics act within time to generate each moment. Mixing mathematics, physics and philosophy, Maudlin bats away the reasons that scientists and philosophers commonly give for denying this folk wisdom.
+              From microcopy to kerning, it is crucial not to oversee those characteristics. You would be pretty disapointed to have crafted an experience that is unreadable to some people.
             </p>
-            <div class="img">
-              <img src="@@webRoot/assets/img/article-laws.jpg" srcset="@@webRoot/assets/img/article-laws.jpg 1x, @@webRoot/assets/img/article-laws@2x.jpg 2x, @@webRoot/assets/img/article-laws@3x.jpg 3x" alt="Desc">
-            </div>
             <p>
-              Not that he thinks they always are. Maudlin, who is a professor at New York University and one of the world’s leading philosophers of physics, made his name studying the strange behavior of “entangled” quantum particles, which display behavior that is as counterintuitive as can be; if anything, he thinks physicists have downplayed how transformative entanglement is. At the same time, though, he thinks physicists can be too hasty to claim that our conventional views are misguided, especially when it comes to the nature of time.
+              Typography doesn't only rely on choosing the latest trendy font. Text legibility is an important factor which depends on your font size, font characteristics, kerning, leading, and your color palette as well. See? Everything connects.
+            </p>
+            <p>
+              <a href="@@webRoot/design/writing" class="button button--design">Write the right way</a>
             </p>
           </div>
+          <h2>
+            Focus
+          </h2>
           <p>
-            He defends a homey and unfashionable view of time. It has a built-in arrow. It is fundamental rather than derived from some deeper reality. Change is real, as opposed to an illusion or an artifact of perspective. The laws of physics act within time to generate each moment. Mixing mathematics, physics and philosophy, Maudlin bats away the reasons that scientists and philosophers commonly give for denying this folk wisdom.
+            This can help anyone figure out your interface easier. There is no secret recipe for good design, but a good understanding of the Gestalt fundamentals can greatly help.
           </p>
           <p>
-            Not that he thinks they always are. Maudlin, who is a professor at New York University and one of the world’s leading philosophers of physics, made his name studying the strange behavior of “entangled” quantum particles, which display behavior that is as counterintuitive as can be; if anything, he thinks physicists have downplayed how transformative entanglement is. At the same time, though, he thinks physicists can be too hasty to claim that our conventional views are misguided, especially when it comes to the nature of time.
+            Four different perception "laws" will help you craft better structured interfaces, which will be effortless to navigate with the eyes, or a keyboard as well. This practice follows what our brain originally does: creating structured sets.
+          </p>
+          <p>
+            <a href="@@webRoot/design/focus" class="button button--design">Focus on accessibility</a>
+          </p>
+          <h2>
+            Motion
+          </h2>
+          <p>
+            Motion is a module that completes <b>Focus</b>. It adds a level of visual confort that ease the screen experience and which can reduce eye distraction, because of a focal focus.
+          </p>
+          <p>
+            Although, there is a motion thresold designers should not cross, in order to prevent motion sickness and avoid triggering visual sensitivities.
+          </p>
+          <p>
+            <a href="@@webRoot/design/motion" class="button button--design">Move on to motion</a>
           </p>
         </div>
       </div>

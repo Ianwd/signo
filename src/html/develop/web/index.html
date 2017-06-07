@@ -4,7 +4,7 @@
   <head>
     @@include('./templates/head.html', {
       "page-title": "Web – Develop – signo",
-      "page-desc": "desc",
+      "page-desc": "Develop more inclusive online experiences.",
       "og-url": "/develop/web"
     })
   </head>
@@ -18,7 +18,7 @@
       "header-theme": ""
     })
 
-    <main>
+    <main id="maincontent">
       <header class="pageHead pageHead--category pageHead--devWeb">
         <div class="container">
           <nav>
@@ -44,36 +44,69 @@
             <h1>
               Thinking the web <b>more inclusively</b>
             </h1>
-            <a href="@@webRoot/design" class="button button--ghost">Read our development tips</a>
+            <a href="#content" class="button button--ghost js-scrollTo">Read our development tips</a>
           </div>
         </div>
       </header>
       <div class="container">
-        <div class="article__content">
+        <div class="article__content" id="content">
           <p>
-            Physicists and philosophers seem to like nothing more than telling us that everything we thought about the world is wrong. They take a peculiar pleasure in exposing common sense as nonsense. But Tim Maudlin thinks our direct impressions of the world are a better guide to reality than we have been led to believe.
+            Screen accessibility is made with the efforts of designers in the early product stages, but even more of the developers integrating those designs.
+          </p>
+          <h2>Screen Readers</h2>
+          <p>
+            These softwares are an essential resource for disabled people, and so for developers. Understanding their basic usage can greatly help developing an accessible experience. Learning how to use them and test your own website will basically make you a master of HTML accessibility.
           </p>
           <p>
-            Not that he thinks they always are. Maudlin, who is a professor at New York University and one of the world’s leading philosophers of physics, made his name studying the strange behavior of “entangled” quantum particles, which display behavior that is as counterintuitive as can be; if anything, he thinks physicists have downplayed how transformative entanglement is. At the same time, though, he thinks physicists can be too hasty to claim that our conventional views are misguided, especially when it comes to the nature of time.
+            We mainly cover the usage of Voice Over on MacOS®, but the usage of other screen readers on any other platform is identical. They allow people who cannot see correctly to navigate a website more easily, but they highly depend on correct semantics.
           </p>
-          <div class="dark dark--neon">
-            <h2>Test</h2>
+          <p>
+            <a href="@@webRoot/develop/web/screenreaders" class="button button--develop">Read through software</a>
+          </p>
+          <div class="dark dark--dev">
+            <h2>Semantic</h2>
             <p>
-              He defends a homey and unfashionable view of time. It has a built-in arrow. It is fundamental rather than derived from some deeper reality. Change is real, as opposed to an illusion or an artifact of perspective. The laws of physics act within time to generate each moment. Mixing mathematics, physics and philosophy, Maudlin bats away the reasons that scientists and philosophers commonly give for denying this folk wisdom.
+              Tied to how a website behaviors, semantic makes everything work. The HTML format depends on some rules written by the World Wide Web Consortium (W3C). Web semantic consists in applying those standards to your coding, so that every application is similar in a way that allows a rendering uniformisation for browsers and screen readers.
             </p>
-            <div class="img">
-              <img src="@@webRoot/assets/img/article-laws.jpg" srcset="@@webRoot/assets/img/article-laws.jpg 1x, @@webRoot/assets/img/article-laws@2x.jpg 2x, @@webRoot/assets/img/article-laws@3x.jpg 3x" alt="Desc">
-            </div>
             <p>
-              Not that he thinks they always are. Maudlin, who is a professor at New York University and one of the world’s leading philosophers of physics, made his name studying the strange behavior of “entangled” quantum particles, which display behavior that is as counterintuitive as can be; if anything, he thinks physicists have downplayed how transformative entanglement is. At the same time, though, he thinks physicists can be too hasty to claim that our conventional views are misguided, especially when it comes to the nature of time.
+              You should learn and know which element is used for and what its purpose is. Doing so and avoiding validation errors will greatly improve the efficiency of screen readers and keyboard navigation.
+            </p>
+            <p>
+              <a href="@@webRoot/develop/web/semantic" class="button button--develop">Learn semantics</a>
             </p>
           </div>
+          <h2>Aria</h2>
           <p>
-            He defends a homey and unfashionable view of time. It has a built-in arrow. It is fundamental rather than derived from some deeper reality. Change is real, as opposed to an illusion or an artifact of perspective. The laws of physics act within time to generate each moment. Mixing mathematics, physics and philosophy, Maudlin bats away the reasons that scientists and philosophers commonly give for denying this folk wisdom.
+            Accessible Rich Internet Applications. That's a long acronym which stands for a technical specification introduced in 2014 by the W3C. It helps screen readers interact with content which has a different behavior than its original one.
           </p>
           <p>
-            Not that he thinks they always are. Maudlin, who is a professor at New York University and one of the world’s leading philosophers of physics, made his name studying the strange behavior of “entangled” quantum particles, which display behavior that is as counterintuitive as can be; if anything, he thinks physicists have downplayed how transformative entanglement is. At the same time, though, he thinks physicists can be too hasty to claim that our conventional views are misguided, especially when it comes to the nature of time.
+            A concrete exemple would be that a <code class="inline-code">&lt;div&gt;</code> can become a <code class="inline-code">&lt;button&gt;</code>, and a <code class="inline-code">&lt;p&gt;</code> content can serve as an <code class="inline-code">alt</code> for an image. Pretty cool right?
           </p>
+          <p>
+            <a href="@@webRoot/develop/web/aria" class="button button--develop">It does look cool</a>
+          </p>
+          <h2>Forms</h2>
+          <p>
+            These can easily become anoying for anyone who isn't disabled. So imagine being visually impaired and having to go through a badly formated form, with 14 fields, which are not clearly labeled and contains dynamic dropdowns which don't work with keyboard selection.
+          </p>
+          <p>
+            That's a bit rough, but we can give you a few tips on basic form logic, so they can be easier to fill, litterally for anyone.
+          </p>
+          <p>
+            <a href="@@webRoot/develop/web/forms" class="button button--develop">Form my knowledge</a>
+          </p>
+          <div class="dark dark--jet">
+            <h2>Navigation</h2>
+            <p>
+              Additional specific navigation can help screen reader users to browse a website in a more convenient way.
+            </p>
+            <p>
+              Navigation for small screens like smartphones also require a different attention. Frequently, websites for smaller screens feature a collapsed navigation which is not correclty referenced.
+            </p>
+            <p>
+              <a href="@@webRoot/develop/web/navigation" class="button button--develop">Guide me through</a>
+            </p>
+          </div>
         </div>
       </div>
     </main>

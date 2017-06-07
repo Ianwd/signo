@@ -4,7 +4,7 @@
   <head>
     @@include('./templates/head.html', {
       "page-title": "Colors - Design | signo",
-      "page-desc": "desc",
+      "page-desc": "Learn how to take care of color curation in your design process.",
       "og-url": "/design/colors"
     })
   </head>
@@ -28,11 +28,11 @@
             </ol>
           </nav>
           <div class="doc__toc">
-            <nav aria-label="Interactive table of content">
+            <nav aria-label="Table of content">
               <div class="doc__mask">
-                <a class="doc__tocLink js-toc doc__tocLink--active" href="#contrast-ratio">Contrast ratio</a>
-                <a class="doc__tocLink js-toc" href="#color-blindness">Color blindness</a>
-                <a class="doc__tocLink js-toc" href="#sensory-information">Sensory information</a>
+                <a class="doc__tocLink js-toc js-scrollTo doc__tocLink--active" href="#contrast-ratio">Contrast ratio</a>
+                <a class="doc__tocLink js-toc js-scrollTo" href="#color-blindness">Color blindness</a>
+                <a class="doc__tocLink js-toc js-scrollTo" href="#sensory-information">Sensory information</a>
               </div>
               <div class="doc__progress">
                 <div class="doc__progressDone js-progress"></div>
@@ -41,22 +41,21 @@
           </div>
         </div>
       </aside>
-      <article class="doc__article">
-        <div class="doc__update">Last updated <time datetime="2017-04-19">April 19, 2017</time></div>
+      <article class="doc__article" role="article">
+        <div class="doc__update">Last updated <time datetime="2017-06-01">June 1, 2017</time></div>
         @@include(markdown('./markdown/design/colors.md'))
       </article>
     </main>
     <aside class="doc__readmore">
       <div class="container">
-
         <div class="doc__cta">
-          <a href="">
-            <span>Previously</span>
-            Layout
+          <a href="@@webRoot/design/motion">
+            <span>Read also</span>
+            Motion
           </a>
         </div>
         <div class="doc__cta">
-          <a href="">
+          <a href="@@webRoot/design/writing">
             <span>Read next</span>
             Writing
           </a>

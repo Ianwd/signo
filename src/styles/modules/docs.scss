@@ -369,11 +369,21 @@
     }
   }
 
+  h1 + p,
   h2 + p,
   h2 + p + p,
   h2 + p + p + p,
   h2 + p + p + p + p,
-  h2 + p + ul li {
+  h2 + p + p + p + p + p,
+  h2 + p + ul li,
+  pre + p,
+  pre + p + p,
+  pre + p + p + p,
+  pre + p + p + p + p,
+  pre + p + p + ul li,
+  pre + p + p + ul + p,
+  pre + p + ul li,
+  pre + p + ul + p {
     font-size: 16px;
     line-height: 32px;
   }

@@ -367,7 +367,8 @@
   }
 }
 
-.pageHead--about {
+.pageHead--about,
+.pageHead--contact {
   background-color: $space-cadet;
   background-image: url("../img/pattern-white.svg"), radial-gradient(circle farthest-side at left bottom, rgba($white, .1) 0%, rgba($white, 0) 100%);
   background-size: 300%, 100%;
@@ -397,6 +398,13 @@
         display: none;
       }
     }
+  }
+}
+
+.pageHead--contact {
+  .pageHead__content {
+    padding-top: 194px;
+    padding-bottom: 264px;
   }
 }
 
@@ -439,6 +447,7 @@
 }
 
 .contributeAnim {
+  display: none;
   width: 40px;
   height: 40px;
   position: absolute;
@@ -448,6 +457,10 @@
   transform: translateY(-50%);
   background: $white;
   background-image: linear-gradient(-180deg, rgba($black, 0) 0%, rgba($black, 0.15) 100%);
+
+  @include break(s) {
+    display: block;
+  }
 
   &::before {
     content: "";
@@ -520,6 +533,18 @@
     background-repeat: no-repeat;
     padding-top: 64px;
 
+    &--codex {
+      background-image: url("../img/article-codex.jpg");
+
+      @include media-2x {
+        background-image: url("../img/article-codex@2x.jpg");
+      }
+
+      @include media-3x {
+        background-image: url("../img/article-codex@3x.jpg");
+      }
+    }
+
     &--impairments {
       background-image: url("../img/article-impairments.jpg");
 
@@ -541,6 +566,30 @@
 
       @include media-3x {
         background-image: url("../img/article-laws@3x.jpg");
+      }
+    }
+
+    &--resources {
+      background-image: url("../img/article-resources.jpg");
+
+      @include media-2x {
+        background-image: url("../img/article-resources@2x.jpg");
+      }
+
+      @include media-3x {
+        background-image: url("../img/article-resources@3x.jpg");
+      }
+    }
+
+    &--guidelines {
+      background-image: url("../img/article-guidelines.jpg");
+
+      @include media-2x {
+        background-image: url("../img/article-guidelines@2x.jpg");
+      }
+
+      @include media-3x {
+        background-image: url("../img/article-guidelines@3x.jpg");
       }
     }
 
@@ -613,6 +662,26 @@
         padding: 0;
       }
     }
+
+    .pageHead__nav {
+      position: relative;
+      border: 0;
+
+      &::after {
+        content: "";
+        background-color: rgba($white, .6);
+        height: 1px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        position: absolute;
+
+        @include break(m) {
+          left: -32px;
+          right: -32px;
+        }
+      }
+    }
   }
 
   &__content {
@@ -628,13 +697,6 @@
     padding-left: 32px;
     padding-right: 32px;
 
-    // @include break(m) {
-    //   margin-left: 64px;
-    //   margin-right: 64px;
-    //   padding-left: 64px;
-    //   padding-right: 64px;
-    // }
-
     @include break(l) {
       margin-left: auto;
       margin-right: auto;
@@ -643,28 +705,65 @@
     }
 
     h2 {
-      color: $white;
       max-width: 520px;
       margin: 48px auto;
     }
 
-    p {
+    h3 {
+      max-width: 520px;
+      margin: 24px auto 12px;
+    }
+
+    p,
+    ul {
       max-width: 520px;
       margin: 24px auto;
       letter-spacing: 0.2px;
     }
 
-    > p {
-      // margin-top: 0;
+    ul {
+      padding-left: 16px;
 
+      li {
+        padding-left: 8px;
+        line-height: 32px;
+        font-weight: 300;
+        font-size: 16px;
+        color: $jet;
+
+        b {
+          font-weight: 400;
+
+          a {
+            border-bottom-width: 2px;
+          }
+        }
+
+        a {
+          color: lighten($space-cadet, 20);
+          text-decoration: none;
+          border-bottom: 1px solid currentColor;
+          position: relative;
+        }
+      }
+
+      b {
+        font-weight: 400;
+      }
+    }
+
+    > p {
       @include break(m) {
         margin-top: 0;
       }
     }
 
+    &.close {
+      padding-top: 0;
+    }
+
     .dark {
       margin: 96px auto;
-      // padding: 96px 0 96px 16px;
       padding: 96px 0;
       z-index: 0;
       position: relative;
@@ -702,8 +801,33 @@
         background-color: darken($jet, 5);
       }
 
+      &--space::before {
+        background-color: darken($space-cadet, 5);
+      }
+
+      &--design::before {
+        background-color: darken($design, 65);
+      }
+
+      &--dev::before {
+        background-color: darken($dev, 40);
+      }
+
+      &--tools::before {
+        background-color: darken($tools, 42);
+      }
+
+      &--learn::before {
+        background-color: darken($learn, 43);
+      }
+
       h2:first-child {
         margin-top: 0;
+      }
+
+      h2,
+      h3 {
+        color: $white;
       }
 
       p {
@@ -748,13 +872,6 @@
       padding-left: 0;
       padding-right: 0;
     }
-
-    @include break(m) {
-      // margin-left: 64px;
-      // margin-right: 64px;
-      // padding-left: 64px;
-      // padding-right: 64px;
-    }
   }
 
   .container {
@@ -767,5 +884,130 @@
     @include break(l) {
       padding: 0;
     }
+  }
+}
+
+.checklist,
+.resources {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.resources {
+  max-width: 780px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.resource {
+  background-color: $white;
+  box-shadow: 0 1px 2px 0 rgba($black, 0.07), 0 2px 5px 0 rgba(49,49,93,0.09);
+  border-radius: 4px;
+  flex-basis: calc((100% + 16px) / 2 - 16px);
+  margin-right: 16px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  position: relative;
+  transition: box-shadow 1.2s cubic-bezier(0.2, 1, 0.25, 1);
+
+  @include break(s) {
+    flex-basis: calc((100% + 16px) / 3 - 16px);
+  }
+
+  @include break(m) {
+    flex-basis: calc((100% + 16px) / 4 - 16px);
+  }
+
+  &:nth-child(2n) {
+    margin-right: 0;
+
+    @include break(s) {
+      margin-right: 16px;
+    }
+  }
+
+  &:nth-child(3n) {
+    @include break(s) {
+      margin-right: 0;
+    }
+
+    @include break(m) {
+      margin-right: 16px;
+    }
+  }
+
+  &:nth-child(4n) {
+    @include break(m) {
+      margin-right: 0;
+    }
+  }
+
+  &:hover {
+    box-shadow: 0 7px 14px 1px rgba(50,50,93,0.10), 0 3px 6px 1px rgba($black, 0.07);
+  }
+
+  &__top {
+    padding-bottom: 100%;
+    position: relative;
+
+    h5 {
+      position: absolute;
+      left: 16px;
+      top: -2px;
+    }
+
+    &--doc {
+      background-color: rgba($design, .1);
+    }
+
+    &--tool {
+      background-color: rgba($tools, .15);
+    }
+
+    &--sr {
+      background-color: rgba($learn, .2);
+    }
+  }
+
+  &__img {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 8px;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      max-width: 80%;
+      max-height: 30%;
+    }
+  }
+
+  &__desc {
+    padding: 10px 16px 16px;
+
+    h3 {
+      margin: 0 0 6px;
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    p {
+      margin: 6px 0 0;
+      font-size: 12px;
+      line-height: 16px;
+    }
+  }
+
+  a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-indent: -9999px;
+    overflow: hidden;
   }
 }

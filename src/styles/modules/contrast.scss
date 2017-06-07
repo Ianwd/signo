@@ -23,6 +23,18 @@
   }
 }
 
+.disabled {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.no-js .landing {
+  display: none;
+}
+
 .landing {
   display: block;
   background-repeat: no-repeat;
